@@ -1,7 +1,5 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request) {
   try {
     const { name, email, service, message } = await request.json();
@@ -10,10 +8,20 @@ export async function POST(request) {
       return Response.json({ error: "All fields are required." }, { status: 400 });
     }
 
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return Response.json(
+        { error: "Contact service is not configured." },
+        { status: 503 },
+      );
+    }
+
+    const resend = new Resend(apiKey);
+
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>", // Use your verified domain
-      to: "pankajyadavwiki@gmail.com", // Your email
+      to: "siddarth8818@gmail.com", // Portfolio email
       replyTo: email, // Visitor's email for easy replies
       subject: `New Contact Form Submission - ${service}`,
       html: `
