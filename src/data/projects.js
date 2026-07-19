@@ -1,5 +1,8 @@
 /**
- * Featured Projects Data - Real projects by Pankaj Yadav
+ * Project data for the portfolio.
+ *
+ * `featuredProjects` is kept for the software-focused projects page.
+ * `featuredVideos` and `shortVideos` power the video-first home section.
  */
 
 export const featuredProjects = [
@@ -50,5 +53,149 @@ export const featuredProjects = [
     github: null,
     badge: "Live Product",
     image: "/project/adrig.png",
+  },
+];
+
+export const featuredVideos = [
+  {
+    id: 1,
+    title: "AI Promo Cut",
+    brand: "KukuTV",
+    category: "Entertainment",
+    badge: "Launch Film",
+    role: ["Editor", "Motion Graphics", "AI Workflow", "Sound Design"],
+    duration: "1:12",
+    youtubeId: null,
+    description:
+      "AI-assisted promotional edit shaped for attention, retention, and brand recall.",
+    results: ["3M+ Views", "85% Retention", "CTR 4.2%"],
+    tools: ["ChatGPT", "Veo", "Premiere Pro", "After Effects", "ElevenLabs"],
+    workflow: ["ChatGPT", "Veo", "Premiere Pro", "After Effects", "ElevenLabs"],
+    previewImage: "/project/aladdyn.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Brand Story Edit",
+    brand: "Pocket FM",
+    category: "Audio Storytelling",
+    badge: "Brand Story",
+    role: ["Editor", "Motion Graphics", "Sound Design"],
+    duration: "0:54",
+    youtubeId: null,
+    description:
+      "Narrative-first branded edit designed to pair motion, pacing, and voice-led storytelling.",
+    results: ["120K Likes", "71% Retention", "5.1% CTR"],
+    tools: ["Claude", "Premiere Pro", "After Effects", "Sound Design"],
+    workflow: ["Claude", "Premiere Pro", "After Effects", "ElevenLabs"],
+    previewImage: "/project/gomapper.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "Short-Form Campaign",
+    brand: "Seekho",
+    category: "Education",
+    badge: "Commercial",
+    role: ["Editor", "AI Workflow", "Creative Strategy"],
+    duration: "0:38",
+    youtubeId: null,
+    description:
+      "Fast-cut social edit focused on hooks, clarity, and platform-native rhythm.",
+    results: ["3.4M Views", "4.8% CTR", "64% Completion"],
+    tools: ["CapCut", "Premiere Pro", "Motion Graphics", "Hooks"],
+    workflow: ["ChatGPT", "Premiere Pro", "After Effects", "Veo"],
+    previewImage: "/project/mealbox.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
+    featured: true,
+  },
+  {
+    id: 4,
+    title: "Cinematic Motion Piece",
+    brand: "Blue Minch",
+    category: "Creative Direction",
+    badge: "Podcast",
+    role: ["Editor", "Motion Graphics", "AI Workflow"],
+    duration: "1:04",
+    youtubeId: null,
+    description:
+      "Motion-heavy branded piece combining compositing, typography, and AI-assisted workflow design.",
+    results: ["Audience Growth", "Replay Boost", "Content Lift"],
+    tools: ["After Effects", "Blender", "Veo", "ElevenLabs"],
+    workflow: ["ChatGPT", "Veo", "Premiere Pro", "After Effects", "ElevenLabs"],
+    previewImage: "/project/adrig.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
+    featured: true,
+  },
+];
+
+export const shortVideos = [
+  {
+    id: 101,
+    title: "UGC Ad Hook",
+    brand: "KukuTV",
+    category: "UGC Ad",
+    badge: "UGC",
+    duration: "0:24",
+    youtubeId: null,
+    previewImage: "/project/aladdyn.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
+  },
+  {
+    id: 102,
+    title: "Motion Hook",
+    brand: "Pocket FM",
+    category: "Short Form",
+    badge: "Commercial",
+    duration: "0:18",
+    youtubeId: null,
+    previewImage: "/project/gomapper.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
+  },
+  {
+    id: 103,
+    title: "AI Cutdown",
+    brand: "Seekho",
+    category: "AI Video",
+    badge: "Launch Film",
+    duration: "0:30",
+    youtubeId: null,
+    previewImage: "/project/mealbox.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
+  },
+  {
+    id: 104,
+    title: "Cinematic Reel",
+    brand: "MyShivi",
+    category: "Reel",
+    badge: "Brand Story",
+    duration: "0:22",
+    youtubeId: null,
+    previewImage: "/project/adrig.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
+  },
+  {
+    id: 105,
+    title: "Brand Teaser",
+    brand: "ISKCON",
+    category: "Campaign",
+    badge: "Documentary",
+    duration: "0:27",
+    youtubeId: null,
+    previewImage: "/project/aladdyn.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
+  },
+  {
+    id: 106,
+    title: "Retention Cut",
+    brand: "Blue Minch",
+    category: "Performance",
+    badge: "Commercial",
+    duration: "0:20",
+    youtubeId: null,
+    previewImage: "/project/gomapper.png",
+    watchUrl: "https://www.youtube.com/@theopendraft",
   },
 ];

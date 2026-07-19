@@ -13,7 +13,7 @@ export async function POST(request) {
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>", // Use your verified domain
-      to: "siddarth8818@gmail.com", // Your email
+      to: "pankajyadavwiki@gmail.com", // Your email
       replyTo: email, // Visitor's email for easy replies
       subject: `New Contact Form Submission - ${service}`,
       html: `

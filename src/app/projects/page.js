@@ -1,9 +1,9 @@
 import ProjectsContent from "@/components/pages/ProjectsContent";
 
 export const metadata = {
-  title: "Projects - Pankaj Yadav | Full-Stack Software Engineer",
+  title: "Selected Work - Pankaj Yadav | AI Video Editor",
   description:
-    "Production-grade web systems built with React, Node.js, and PostgreSQL. Explore Aladdyn, GoMapper, MealBox and more by Pankaj Yadav.",
+    "A selection of AI-assisted commercials, branded campaigns, documentaries, motion graphics, and creative experiments.",
 };
 
 export default function ProjectsPage() {

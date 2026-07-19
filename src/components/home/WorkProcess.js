@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Layers, Code2, Rocket } from "lucide-react";
+import { Search, Lightbulb, Clapperboard, BarChart3 } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 
 /**
- * WorkProcess - 4-step engineering process
+ * WorkProcess - 4-step creative workflow
  *
  * TO ADD case study examples per step: fill in the `example` field below.
  * TO REMOVE this section: delete it from page.js (no other dependencies).
@@ -15,34 +15,34 @@ const steps = [
   {
     number: "01",
     icon: Search,
-    title: "Discover",
+    title: "Strategy",
     description:
-      "Deep-dive into requirements, audit existing systems, and define the problem clearly before writing a single line of code.",
-    example: "Used for Aladdyn - mapped AI pipeline requirements before any API was designed.",
+      "Every successful video starts before the edit. I understand the audience, platform, campaign objective, and content strategy before opening the timeline.",
+    example: "DELIVERABLE\n\nCreative Brief",
   },
   {
     number: "02",
-    icon: Layers,
-    title: "Design",
+    icon: Lightbulb,
+    title: "Pre-Production",
     description:
-      "Plan database schemas, architect APIs, map component trees. Every structural decision is made before building begins.",
-    example: "MealBox - normalized billing schema designed upfront to eliminate invoice edge cases.",
+      "I develop scripts, hooks, visual references, AI prompts, storyboards, and creative direction that define the video's structure.",
+    example: "DELIVERABLE\n\nStoryboard",
   },
   {
     number: "03",
-    icon: Code2,
-    title: "Build",
+    icon: Clapperboard,
+    title: "Production",
     description:
-      "Full-stack implementation with clean, reviewed code - iterating fast while keeping the codebase maintainable.",
-    example: "GoMapper - React dashboard + REST layer built in parallel with shared type contracts.",
+      "Assets are generated, edited, animated, color graded, and polished using AI-assisted workflows combined with professional editing tools.",
+    example: "DELIVERABLE\n\nFinal Edit",
   },
   {
     number: "04",
-    icon: Rocket,
-    title: "Ship",
+    icon: BarChart3,
+    title: "Optimize",
     description:
-      "Deploy, monitor, and optimize. Post-launch improvements driven by real usage data - the work doesn't stop at go-live.",
-    example: "Aladdyn - 25% response-time gain after post-launch query profiling and indexing.",
+      "Delivery doesn't end at export. I refine videos using audience retention, watch time, and campaign performance to continuously improve future content.",
+    example: "DELIVERABLE\n\nCampaign Assets",
   },
 ];
 
@@ -99,7 +99,7 @@ export default function WorkProcess() {
               theme === "dark" ? "text-zinc-500" : "text-gray-400"
             }`}
           >
-            A structured engineering mindset - shipping reliable software without surprises.
+            Blending storytelling, AI workflows, motion graphics, and performance marketing into a repeatable creative process.
           </motion.p>
         </div>
 

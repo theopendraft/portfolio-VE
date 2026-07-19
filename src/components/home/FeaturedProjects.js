@@ -1,58 +1,32 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useCursor } from "@/hooks/useCursor";
 import { useTheme } from "@/contexts/ThemeContext";
-import Image from "next/image";
-import { featuredProjects } from "@/data/projects";
+import { featuredVideos, shortVideos } from "@/data/projects";
 
-/**
- * FeaturedProjects - Cinematic project showcase with sticky card stacking
- *
- * Features:
- * - Full-screen sticky cards that stack as user scrolls
- * - CSS sticky positioning for smooth native scroll
- * - Framer Motion for entrance animations
- * - Cursor integration (active mode on hover)
- * - Mobile-responsive (simple list on small screens)
- */
 export default function FeaturedProjects() {
   const { setCursorType, resetCursor } = useCursor();
   const { theme } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
+  const [activeFilmId, setActiveFilmId] = useState(null);
   const containerRef = useRef(null);
 
   const titleStyle = {
     fontFamily: "'Haffer', sans-serif",
     lineHeight: "100%",
-    letterSpacing: "-0.01em",
+    letterSpacing: "-0.02em",
   };
 
   useEffect(() => {
-    // Check for mobile devices
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
     window.addEventListener("resize", checkMobile);
-
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
 
   return (
     <section
@@ -61,227 +35,156 @@ export default function FeaturedProjects() {
         theme === "dark" ? "bg-transparent" : "bg-gray-100"
       }`}
     >
-      {/* Section Intro */}
       <div className="relative px-4 sm:px-8 py-16 sm:py-24 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className={`text-6xl lg:text-7xl font-bold tracking-tight uppercase mb-6 ${
+          transition={{ duration: 0.45 }}
+          className={`text-xs uppercase tracking-[0.25em] font-medium mb-3 ${
+            theme === "dark" ? "text-zinc-500" : "text-gray-400"
+          }`}
+        >
+          Selected Work
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, delay: 0.05 }}
+          className={`text-6xl lg:text-7xl font-bold tracking-tight mb-6 ${
             theme === "dark" ? "text-white" : "text-gray-900"
           }`}
           style={titleStyle}
         >
-          Featured Projects
+          Selected Work
         </motion.h2>
+
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className={`text-lg max-w-2xl mx-auto ${
+          transition={{ duration: 0.55, delay: 0.1 }}
+          className={`text-lg max-w-2xl mx-auto leading-relaxed ${
             theme === "dark" ? "text-zinc-400" : "text-gray-600"
           }`}
         >
-          A curated selection of projects that showcase my approach to solving
-          complex problems with elegant solutions.
+          Stories crafted with AI, motion graphics, and performance-driven editing.
         </motion.p>
       </div>
 
-      {/* Sticky Cards Container */}
       {isMobile ? (
-        /* Mobile: Simple Stack */
         <div className="space-y-6 px-4 sm:px-8 pb-16 sm:pb-24">
-          {featuredProjects.map((project, index) => (
-            <motion.div
+          {featuredVideos.map((project, index) => (
+            <FilmCard
               key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative w-full"
-            >
-              {/* Project Card */}
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group cursor-none"
-                onMouseEnter={() => setCursorType("active")}
-                onMouseLeave={resetCursor}
-              >
-                <div
-                  className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center rounded-3xl overflow-hidden border p-8 lg:p-16 transition-all duration-500 ${
-                    theme === "dark"
-                      ? "bg-zinc-900 border-zinc-800 hover:border-[#C4F047]"
-                      : "bg-white border-gray-300 hover:border-blue-500"
-                  }`}
-                >
-                  {/* Left: Project Image */}
-                  <div className="relative aspect-4/3 lg:aspect-square rounded-2xl overflow-hidden bg-zinc-900">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width:1024px) 100vw, 40vw"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-
-                  {/* Right: Project Info */}
-                  <div className="space-y-5">
-                    {/* Badge + Number row */}
-                    <div className="flex items-center gap-3">
-                      {project.badge && (
-                        <span
-                          className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
-                            theme === "dark"
-                              ? "bg-[#C4F047]/10 text-[#C4F047]"
-                              : "bg-blue-100 text-blue-600"
-                          }`}
-                        >
-                          {project.badge}
-                        </span>
-                      )}
-                      <span
-                        className={`text-xs font-bold tracking-widest uppercase ${
-                          theme === "dark" ? "text-zinc-600" : "text-gray-400"
-                        }`}
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-
-                    {/* Title */}
-                    <h3
-                      className={`text-4xl lg:text-5xl font-bold leading-tight transition-colors duration-300 ${
-                        theme === "dark"
-                          ? "text-white group-hover:text-[#C4F047]"
-                          : "text-gray-900 group-hover:text-blue-500"
-                      }`}
-                      style={titleStyle}
-                    >
-                      {project.title}
-                    </h3>
-
-                    {/* Subtitle */}
-                    {project.subtitle && (
-                      <p
-                        className={`text-sm font-medium uppercase tracking-wider ${
-                          theme === "dark" ? "text-zinc-500" : "text-gray-400"
-                        }`}
-                      >
-                        {project.subtitle}
-                      </p>
-                    )}
-
-                    {/* Description */}
-                    <p
-                      className={`text-base leading-relaxed ${
-                        theme === "dark" ? "text-zinc-400" : "text-gray-600"
-                      }`}
-                    >
-                      {project.shortDescription}
-                    </p>
-
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.techStack.map((tech, i) => (
-                        <span
-                          key={i}
-                          className={`px-3 py-1.5 text-xs font-medium rounded-full border ${
-                            theme === "dark"
-                              ? "bg-zinc-800 text-zinc-300 border-zinc-700"
-                              : "bg-gray-100 text-gray-700 border-gray-300"
-                          }`}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Links Row */}
-                    <div className="flex items-center gap-4 pt-2">
-                      <div
-                        className={`flex items-center gap-2 transition-colors duration-300 ${
-                          theme === "dark"
-                            ? "text-white group-hover:text-[#C4F047]"
-                            : "text-gray-900 group-hover:text-blue-500"
-                        }`}
-                      >
-                        <span className="text-sm font-semibold uppercase tracking-wider">
-                          View Project
-                        </span>
-                        <svg
-                          className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 ${
-                            theme === "dark"
-                              ? "text-zinc-600 hover:text-[#C4F047]"
-                              : "text-gray-400 hover:text-blue-500"
-                          }`}
-                        >
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                          </svg>
-                          Source
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </motion.div>
+              project={project}
+              index={index}
+              theme={theme}
+              titleStyle={titleStyle}
+              setCursorType={setCursorType}
+              resetCursor={resetCursor}
+              activeFilmId={activeFilmId}
+              setActiveFilmId={setActiveFilmId}
+              isMobile
+            />
           ))}
         </div>
       ) : (
-        /* Desktop: Sticky Stacking Cards */
         <div
           ref={containerRef}
           className="relative"
-          style={{
-            height: `${featuredProjects.length * 85}vh`,
-            position: "relative",
-          }}
+          style={{ height: `${featuredVideos.length * 88}vh`, position: "relative" }}
         >
           <div className="relative">
-            {featuredProjects.map((project, index) => {
-              const targetScale = 1 - (featuredProjects.length - index) * 0.05;
-
-              return (
-                <StickyCard
-                  key={project.id}
-                  project={project}
-                  index={index}
-                  totalCards={featuredProjects.length}
-                  targetScale={targetScale}
-                  containerRef={containerRef}
-                  setCursorType={setCursorType}
-                  resetCursor={resetCursor}
-                  theme={theme}
-                  titleStyle={titleStyle}
-                />
-              );
-            })}
+            {featuredVideos.map((project, index) => (
+              <FilmCard
+                key={project.id}
+                project={project}
+                index={index}
+                totalCards={featuredVideos.length}
+                containerRef={containerRef}
+                theme={theme}
+                titleStyle={titleStyle}
+                setCursorType={setCursorType}
+                resetCursor={resetCursor}
+                activeFilmId={activeFilmId}
+                setActiveFilmId={setActiveFilmId}
+              />
+            ))}
           </div>
         </div>
       )}
 
-      {/* Exit CTA */}
+      <div className={`relative px-4 sm:px-8 py-14 sm:py-18 ${theme === "dark" ? "bg-transparent" : "bg-gray-100"}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-8 sm:mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className={`text-xs uppercase tracking-[0.25em] font-medium mb-3 ${theme === "dark" ? "text-zinc-500" : "text-gray-400"}`}>
+                Short Form
+              </p>
+              <h3 className={`text-4xl lg:text-5xl font-bold tracking-tight ${theme === "dark" ? "text-white" : "text-gray-900"}`} style={titleStyle}>
+                Short-Form Content
+              </h3>
+            </div>
+            <p className={`text-sm max-w-xl leading-relaxed ${theme === "dark" ? "text-zinc-500" : "text-gray-500"}`}>
+              Vertical edits, UGC hooks, and campaign cutdowns designed for fast consumption and high retention.
+            </p>
+          </div>
+
+          <div className="columns-1 gap-4 sm:gap-5 md:columns-2 xl:columns-3 [column-fill:_balance]">
+            {shortVideos.map((video, index) => (
+              <ShortVideoCard
+                key={video.id}
+                video={video}
+                theme={theme}
+                setCursorType={setCursorType}
+                resetCursor={resetCursor}
+                tall={index % 3 === 1}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className={`relative px-4 sm:px-8 py-16 sm:py-20 ${theme === "dark" ? "bg-transparent" : "bg-gray-100"}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-8">
+            <p className={`text-xs uppercase tracking-[0.25em] font-medium mb-3 ${theme === "dark" ? "text-zinc-500" : "text-gray-400"}`}>
+              Behind The Edit
+            </p>
+            <h3 className={`text-4xl lg:text-5xl font-bold tracking-tight ${theme === "dark" ? "text-white" : "text-gray-900"}`} style={titleStyle}>
+              Pipeline
+            </h3>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+            {[
+              ["ChatGPT", "Script"],
+              ["Veo / Kling", "AI Assets"],
+              ["Premiere Pro", "Editing"],
+              ["After Effects", "Motion Graphics"],
+              ["ElevenLabs", "Voice & Delivery"],
+            ].map(([tool, stage]) => (
+              <div
+                key={tool}
+                className={`rounded-2xl border px-5 py-4 ${
+                  theme === "dark"
+                    ? "border-zinc-800 bg-zinc-900/40 text-white"
+                    : "border-gray-200 bg-white text-gray-900"
+                }`}
+              >
+                <div className="text-sm font-semibold uppercase tracking-wider">{tool}</div>
+                <div className={`mt-2 text-xs uppercase tracking-[0.25em] ${theme === "dark" ? "text-zinc-500" : "text-gray-500"}`}>
+                  {stage}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div
         className={`relative px-8 pb-16 sm:pb-20 text-center transition-colors duration-500 ${
           theme === "dark"
@@ -296,11 +199,7 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.6 }}
           className="space-y-6"
         >
-          <p
-            className={`text-lg ${
-              theme === "dark" ? "text-zinc-500" : "text-gray-500"
-            }`}
-          >
+          <p className={`text-lg ${theme === "dark" ? "text-zinc-500" : "text-gray-500"}`}>
             Want to see more?
           </p>
           <Link
@@ -313,19 +212,9 @@ export default function FeaturedProjects() {
             onMouseEnter={() => setCursorType("active")}
             onMouseLeave={resetCursor}
           >
-            Browse All Projects
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
+            Explore More Projects
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </motion.div>
@@ -334,46 +223,255 @@ export default function FeaturedProjects() {
   );
 }
 
-// Separate component for each sticky card with scroll-linked animations
-function StickyCard({
+function FilmCard({
   project,
   index,
   totalCards,
-  targetScale,
   containerRef,
-  setCursorType,
-  resetCursor,
   theme,
   titleStyle,
+  setCursorType,
+  resetCursor,
+  activeFilmId,
+  setActiveFilmId,
+  isMobile = false,
 }) {
-  const cardRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const isActive = activeFilmId === project.id;
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Calculate this card's specific range based on its index
-  const cardStart = index / totalCards;
-  const cardEnd = (index + 1) / totalCards;
-
-  const scale = useTransform(
-    scrollYProgress,
-    [cardStart, cardEnd],
-    [1, targetScale],
-  );
-
-  // Only fade out non-last cards
+  const cardStart = totalCards ? index / totalCards : 0;
+  const cardEnd = totalCards ? (index + 1) / totalCards : 1;
+  const targetScale = totalCards ? 1 - (totalCards - index) * 0.05 : 1;
   const isLastCard = index === totalCards - 1;
+  const scale = useTransform(scrollYProgress, [cardStart, cardEnd], [1, targetScale]);
   const opacity = useTransform(
     scrollYProgress,
     [cardStart, cardEnd - 0.1, cardEnd],
-    isLastCard ? [1, 1, 1] : [1, 0.8, 0],
+    isLastCard ? [1, 1, 1] : [1, 0.86, 0.14],
   );
+
+  const embedUrl = project.youtubeId
+    ? `https://www.youtube-nocookie.com/embed/${project.youtubeId}?rel=0&modestbranding=1&playsinline=1`
+    : null;
+
+  const filmShell = (
+    <div
+      className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center rounded-3xl overflow-hidden border p-8 lg:p-16 transition-all duration-500 h-full ${
+        theme === "dark"
+          ? "bg-zinc-900 border-zinc-800 hover:border-[#C4F047]"
+          : "bg-white border-gray-300 hover:border-blue-500"
+      }`}
+    >
+      <button
+        type="button"
+        className="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 cursor-pointer text-left"
+        onClick={() => setActiveFilmId(isActive ? null : project.id)}
+        onMouseEnter={() => {
+          setIsHovered(true);
+          setCursorType("active");
+        }}
+        onMouseLeave={() => {
+          setIsHovered(false);
+          resetCursor();
+        }}
+      >
+        {isActive && embedUrl ? (
+          <iframe
+            src={embedUrl}
+            title={`${project.brand} ${project.title}`}
+            className="absolute inset-0 h-full w-full"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        ) : (
+          <Image
+            src={project.previewImage || "/project/aladdyn.png"}
+            alt={project.title}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width:1024px) 100vw, 50vw"
+          />
+        )}
+
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-90 transition-opacity duration-500" />
+
+        {!isActive && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className={`flex h-20 w-20 items-center justify-center rounded-full border border-white/25 bg-black/40 text-white shadow-2xl backdrop-blur-sm ${isHovered ? "scale-105" : "scale-100"} transition-transform duration-300`}>
+              <svg className="h-7 w-7 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </div>
+        )}
+
+        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 flex items-center justify-between text-white">
+          <span className="text-xs font-semibold uppercase tracking-[0.25em]">
+            {project.duration}
+          </span>
+          <span className="text-xs font-medium uppercase tracking-[0.2em] rounded-full border border-white/20 bg-white/10 px-3 py-1">
+            {project.category}
+          </span>
+        </div>
+      </button>
+
+      <div className="space-y-5">
+        <div className="flex items-center gap-3 flex-wrap">
+          <span className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${theme === "dark" ? "bg-[#C4F047]/10 text-[#C4F047]" : "bg-blue-100 text-blue-600"}`}>
+            {project.badge || "Featured"}
+          </span>
+          <span className={`text-xs font-bold tracking-widest uppercase ${theme === "dark" ? "text-zinc-600" : "text-gray-400"}`}>
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
+
+        <h3
+          className={`text-4xl lg:text-5xl font-bold leading-tight transition-colors duration-300 ${
+            theme === "dark" ? "text-white hover:text-[#C4F047]" : "text-gray-900 hover:text-blue-500"
+          }`}
+          style={titleStyle}
+        >
+          {project.title}
+        </h3>
+
+        <div className="space-y-1">
+          <p className={`text-sm font-medium uppercase tracking-wider ${theme === "dark" ? "text-zinc-500" : "text-gray-400"}`}>
+            {project.brand}
+          </p>
+          <p className={`text-sm font-medium uppercase tracking-wider ${theme === "dark" ? "text-zinc-600" : "text-gray-500"}`}>
+            {project.category}
+          </p>
+        </div>
+
+        <p className={`text-base leading-relaxed ${theme === "dark" ? "text-zinc-400" : "text-gray-600"}`}>
+          {project.description}
+        </p>
+
+        {project.role?.length ? (
+          <div className="space-y-3 pt-1">
+            <div className={`text-xs uppercase tracking-[0.25em] font-semibold ${theme === "dark" ? "text-zinc-500" : "text-gray-400"}`}>
+              Role
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {project.role.map((item) => (
+                <span
+                  key={item}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-full border ${theme === "dark" ? "bg-zinc-800 text-zinc-300 border-zinc-700" : "bg-gray-100 text-gray-700 border-gray-300"}`}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {project.results?.length ? (
+          <div className="space-y-3 pt-1">
+            <div className={`text-xs uppercase tracking-[0.25em] font-semibold ${theme === "dark" ? "text-zinc-500" : "text-gray-400"}`}>
+              Results
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {project.results.map((item) => (
+                <span
+                  key={item}
+                  className={`px-3 py-1.5 text-xs font-semibold rounded-full border ${theme === "dark" ? "bg-[#C4F047]/10 text-[#C4F047] border-[#C4F047]/20" : "bg-blue-50 text-blue-600 border-blue-100"}`}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {project.workflow?.length ? (
+          <div className="space-y-3 pt-1">
+            <div className={`text-xs uppercase tracking-[0.25em] font-semibold ${theme === "dark" ? "text-zinc-500" : "text-gray-400"}`}>
+              Workflow
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              {project.workflow.map((step, stepIndex) => (
+                <div key={step} className="flex items-center gap-2">
+                  <span className={`px-3 py-1.5 text-xs font-medium rounded-full border ${theme === "dark" ? "bg-zinc-800 text-zinc-300 border-zinc-700" : "bg-gray-100 text-gray-700 border-gray-300"}`}>
+                    {step}
+                  </span>
+                  {stepIndex < project.workflow.length - 1 && (
+                    <span className={`text-xs font-semibold ${theme === "dark" ? "text-zinc-600" : "text-gray-400"}`}>
+                      →
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        <div className="flex flex-wrap gap-2">
+          {project.tools?.map((tech) => (
+            <span
+              key={tech}
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold rounded-full border ${theme === "dark" ? "bg-zinc-800 text-zinc-300 border-zinc-700" : "bg-gray-100 text-gray-700 border-gray-300"}`}
+            >
+              <span className={`flex h-4 w-4 items-center justify-center rounded-full text-[9px] uppercase ${theme === "dark" ? "bg-zinc-700 text-zinc-200" : "bg-white text-gray-700"}`}>
+                {tech.slice(0, 2)}
+              </span>
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-4 pt-2">
+          <button
+            type="button"
+            className={`flex items-center gap-2 transition-colors duration-300 ${theme === "dark" ? "text-white hover:text-[#C4F047]" : "text-gray-900 hover:text-blue-500"}`}
+            onClick={() => setActiveFilmId(isActive ? null : project.id)}
+          >
+            <span className="text-sm font-semibold uppercase tracking-wider">
+              {isActive ? "Hide Preview" : "Watch Full Film"}
+            </span>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+          {project.watchUrl && (
+            <a
+              href={project.watchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 ${theme === "dark" ? "text-zinc-600 hover:text-[#C4F047]" : "text-gray-400 hover:text-blue-500"}`}
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.868v4.264a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              YouTube
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
+  if (isMobile) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, delay: index * 0.08 }}
+      >
+        {filmShell}
+      </motion.div>
+    );
+  }
 
   return (
     <motion.section
-      ref={cardRef}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -388,150 +486,81 @@ function StickyCard({
       }}
     >
       <div className="max-w-7xl mx-auto w-full h-7xl">
-        {/* Project Card */}
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block group cursor-none h-full"
-          onMouseEnter={() => setCursorType("active")}
-          onMouseLeave={resetCursor}
-        >
-          <div
-            className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center rounded-3xl overflow-hidden border p-8 lg:p-16 transition-all duration-500 h-full ${
-              theme === "dark"
-                ? "bg-zinc-900 border-zinc-800 hover:border-[#C4F047]"
-                : "bg-white border-gray-300 hover:border-blue-500"
-            }`}
-          >
-            {/* Left: Project Image */}
-            <div className="relative aspect-4/3 lg:aspect-square rounded-2xl overflow-hidden bg-zinc-900">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width:1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-
-            {/* Right: Project Info */}
-            <div className="space-y-5">
-              {/* Badge + Number row */}
-              <div className="flex items-center gap-3">
-                {project.badge && (
-                  <span
-                    className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
-                      theme === "dark"
-                        ? "bg-[#C4F047]/10 text-[#C4F047]"
-                        : "bg-blue-100 text-blue-600"
-                    }`}
-                  >
-                    {project.badge}
-                  </span>
-                )}
-                <span
-                  className={`text-xs font-bold tracking-widest uppercase ${
-                    theme === "dark" ? "text-zinc-600" : "text-gray-400"
-                  }`}
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-
-              {/* Title */}
-              <h3
-                className={`text-4xl lg:text-5xl font-bold leading-tight transition-colors duration-300 ${
-                  theme === "dark"
-                    ? "text-white group-hover:text-[#C4F047]"
-                    : "text-gray-900 group-hover:text-blue-500"
-                }`}
-                style={titleStyle}
-              >
-                {project.title}
-              </h3>
-
-              {/* Subtitle */}
-              {project.subtitle && (
-                <p
-                  className={`text-sm font-medium uppercase tracking-wider ${
-                    theme === "dark" ? "text-zinc-500" : "text-gray-400"
-                  }`}
-                >
-                  {project.subtitle}
-                </p>
-              )}
-
-              {/* Description */}
-              <p
-                className={`text-base leading-relaxed ${
-                  theme === "dark" ? "text-zinc-400" : "text-gray-600"
-                }`}
-              >
-                {project.shortDescription}
-              </p>
-
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2">
-                {project.techStack.map((tech, i) => (
-                  <span
-                    key={i}
-                    className={`px-3 py-1.5 text-xs font-medium rounded-full border ${
-                      theme === "dark"
-                        ? "bg-black-800 text-zinc-300 border-zinc-700"
-                        : "bg-gray-100 text-gray-700 border-gray-300"
-                    }`}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Links Row */}
-              <div className="flex items-center gap-4 pt-2">
-                <div
-                  className={`flex items-center gap-2 transition-colors duration-300 ${
-                    theme === "dark"
-                      ? "text-white group-hover:text-[#C4F047]"
-                      : "text-gray-900 group-hover:text-blue-500"
-                  }`}
-                >
-                  <span className="text-sm font-semibold uppercase tracking-wider">
-                    View Project
-                  </span>
-                  <svg
-                    className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 ${
-                      theme === "dark"
-                        ? "text-zinc-600 hover:text-[#C4F047]"
-                        : "text-gray-400 hover:text-blue-500"
-                    }`}
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                    </svg>
-                    Source
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        </a>
+        {filmShell}
       </div>
     </motion.section>
+  );
+}
+
+function ShortVideoCard({ video, theme, setCursorType, resetCursor, tall }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const embedUrl = video.youtubeId
+    ? `https://www.youtube-nocookie.com/embed/${video.youtubeId}?rel=0&modestbranding=1&playsinline=1`
+    : null;
+
+  return (
+    <button
+      type="button"
+      onClick={() => setIsPlaying((prev) => !prev)}
+      className={`group mb-4 inline-block w-full rounded-2xl border overflow-hidden text-left transition-all duration-300 cursor-none ${
+        theme === "dark"
+          ? "border-zinc-800 bg-zinc-900/40 hover:border-[#C4F047]"
+          : "border-gray-200 bg-white hover:border-blue-500"
+      }`}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        setCursorType("active");
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        resetCursor();
+      }}
+    >
+      <div className={`relative overflow-hidden bg-zinc-900 ${tall ? "aspect-[9/18]" : "aspect-[9/15]"}`}>
+        {isPlaying && embedUrl ? (
+          <iframe
+            src={embedUrl}
+            title={`${video.brand} ${video.title}`}
+            className="absolute inset-0 h-full w-full"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        ) : (
+          <Image
+            src={video.previewImage}
+            alt={video.title}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width:768px) 100vw, 33vw"
+          />
+        )}
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-90" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className={`flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white shadow-xl backdrop-blur-sm transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}>
+            <svg className="h-5 w-5 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </div>
+        <div className="absolute inset-x-0 bottom-0 p-4 text-white space-y-2">
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-xs font-semibold uppercase tracking-[0.25em]">
+              {video.duration}
+            </span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] rounded-full border border-white/20 bg-white/10 px-2.5 py-1">
+              {video.category}
+            </span>
+          </div>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider">{video.brand}</p>
+            <h4 className="text-lg font-bold leading-tight" style={{ fontFamily: "'Haffer', sans-serif" }}>
+              {video.title}
+            </h4>
+          </div>
+        </div>
+      </div>
+    </button>
   );
 }

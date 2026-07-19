@@ -13,53 +13,68 @@ import { useTheme } from "@/contexts/ThemeContext";
 
 const techCategories = [
   {
-    label: "Languages",
+    label: "Editing",
     items: [
-      { name: "JavaScript", dot: "#F7DF1E" },
-      { name: "TypeScript", dot: "#3178C6" },
-      { name: "Python", dot: "#3776AB" },
-      { name: "SQL", dot: "#4479A1" },
-      // placeholder - add more languages as you learn them
+      { name: "Adobe Premiere Pro", dot: "#9999FF" },
+      { name: "DaVinci Resolve", dot: "#FF6B35" },
+      { name: "CapCut", dot: "#111111" },
     ],
   },
   {
-    label: "Frameworks & Libraries",
+    label: "Motion Design",
     items: [
-      { name: "React.js", dot: "#61DAFB" },
-      { name: "Next.js", dot: "#aaaaaa" },
+      { name: "After Effects", dot: "#9999FF" },
+      { name: "Photoshop", dot: "#31A8FF" },
+      { name: "Illustrator", dot: "#FF9A00" },
+      { name: "Blender", dot: "#F5792A" },
+      { name: "Cinema 4D", dot: "#011A6A" },
+    ],
+  },
+  {
+    label: "AI Production",
+    items: [
+      { name: "ChatGPT", dot: "#10A37F" },
+      { name: "Claude", dot: "#D97706" },
+      { name: "Gemini", dot: "#4285F4" },
+      { name: "Veo", dot: "#34A853" },
+      { name: "Kling", dot: "#7C3AED" },
+      { name: "Google Flow", dot: "#4285F4" },
+      { name: "Midjourney", dot: "#000000" },
+      { name: "Magnific", dot: "#9333EA" },
+      { name: "ElevenLabs", dot: "#111111" },
+      { name: "HeyGen", dot: "#2563EB" },
+    ],
+  },
+  {
+    label: "Post Production",
+    items: [
+      { name: "Color Grading", dot: "#F59E0B" },
+      { name: "Lumetri", dot: "#FBBF24" },
+      { name: "Adobe Audition", dot: "#8B5CF6" },
+      { name: "Sound Design", dot: "#06B6D4" },
+      { name: "Proxy Workflow", dot: "#6B7280" },
+      { name: "Media Management", dot: "#10B981" },
+    ],
+  },
+  {
+    label: "Creative Strategy",
+    items: [
+      { name: "UGC Ads", dot: "#EF4444" },
+      { name: "Brand Storytelling", dot: "#F97316" },
+      { name: "Performance Marketing", dot: "#3B82F6" },
+      { name: "Audience Retention", dot: "#8B5CF6" },
+      { name: "Hooks", dot: "#22C55E" },
+      { name: "Content Strategy", dot: "#F59E0B" },
+    ],
+  },
+  {
+    label: "Automation",
+    items: [
+      { name: "Remotion", dot: "#7C3AED" },
       { name: "Node.js", dot: "#339933" },
-      { name: "Express.js", dot: "#888888" },
-      { name: "Tailwind CSS", dot: "#06B6D4" },
-      { name: "Framer Motion", dot: "#FF0055" },
-      // placeholder - add new frameworks here
-    ],
-  },
-  {
-    label: "Databases & ORM",
-    items: [
-      { name: "PostgreSQL", dot: "#4169E1" },
-      { name: "Prisma", dot: "#5A67D8" },
-      // placeholder - add Redis, MongoDB etc. when applicable
-    ],
-  },
-  {
-    label: "AI & Integrations",
-    items: [
-      { name: "LLM APIs", dot: "#10B981" },
-      { name: "OpenAI", dot: "#10B981" },
-      { name: "Vector Search", dot: "#8B5CF6" },
-      // placeholder - add specific AI tools / providers as you work with them
-    ],
-  },
-  {
-    label: "Tools & Platforms",
-    items: [
-      { name: "Git", dot: "#F05032" },
-      { name: "Docker", dot: "#2496ED" },
-      { name: "Postman", dot: "#FF6C37" },
-      { name: "Figma", dot: "#F24E1E" },
-      { name: "Vercel", dot: "#000000" },
-      { name: "AWS", dot: "#FF9900" },
+      { name: "n8n", dot: "#EA4B71" },
+      { name: "Prompt Engineering", dot: "#10A37F" },
+      { name: "Workflow Design", dot: "#2563EB" },
     ],
   },
 ];
@@ -92,7 +107,7 @@ export default function TechStack() {
                 theme === "dark" ? "text-zinc-500" : "text-gray-400"
               }`}
             >
-              Stack
+              TOOLKIT
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -104,7 +119,7 @@ export default function TechStack() {
               }`}
               style={titleStyle}
             >
-              Tech I Work With
+              Creative Toolkit
             </motion.h2>
           </div>
 
@@ -117,7 +132,7 @@ export default function TechStack() {
               theme === "dark" ? "text-zinc-500" : "text-gray-400"
             }`}
           >
-            Tools chosen for each project based on fit - not trend.
+            From editing and motion graphics to AI generation and creative strategy, these are the tools behind every project.
           </motion.p>
         </div>
 

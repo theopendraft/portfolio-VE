@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useCursor } from "@/hooks/useCursor";
 import MagneticButton from "@/components/shared/MagneticButton";
-import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { BookOpen, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -14,17 +14,24 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
+const CONTACT_EMAIL = "siddarth8818@gmail.com";
+
 const services = [
-  "Web Development",
-  "Full-Stack Engineering",
-  "UI/UX Design",
-  "Consulting",
+  "Commercial Video",
+  "UGC Ads",
+  "Motion Graphics",
+  "Podcast Editing",
+  "YouTube Editing",
+  "Brand Campaign",
+  "Creative Strategy",
+  "AI Video Production",
   "Other",
 ];
 
 const CONTACT_INFO = [
-  { icon: Mail, label: "Email", value: "siddarth8818@gmail.com", href: "mailto:siddarth8818@gmail.com" },
-  { icon: MapPin, label: "Location", value: "Chennai, Tamil Nadu, India", href: null },
+  { icon: Mail, label: "Work Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+  { icon: MapPin, label: "Location", value: "India", detail: "Available Worldwide", href: null },
+  { icon: BookOpen, label: "Replies", value: "Within 24 Hours", href: null },
 ];
 
 export default function ContactContent() {
@@ -106,22 +113,27 @@ export default function ContactContent() {
             className={`text-5xl sm:text-6xl lg:text-7xl font-bold leading-none tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}
             style={{ fontFamily: "'Haffer', sans-serif", letterSpacing: "-0.03em" }}
           >
-            LET'S WORK
+            LET&apos;S CREATE
             <br />
-            <span className={isDark ? "text-[#C4F047]" : "text-blue-500"}>TOGETHER.</span>
+            SOMETHING
+            <br />
+            <span className={isDark ? "text-[#C4F047]" : "text-blue-500"}>WORTH WATCHING.</span>
           </h1>
+          <p className={`mt-6 max-w-xl text-base leading-relaxed ${isDark ? "text-zinc-400" : "text-gray-600"}`}>
+            Whether it&apos;s an AI-assisted commercial, UGC campaign, podcast, documentary, or social-first content, I&apos;d love to hear about your project.
+          </p>
         </motion.div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className={`block text-sm font-medium mb-2 ${isDark ? "text-[#C4F047]" : "text-blue-500"}`}>Name</label>
+                  <label className={`block text-sm font-medium mb-2 ${isDark ? "text-[#C4F047]" : "text-blue-500"}`}>Your Name</label>
                   <input type="text" name="name" value={formData.name} onChange={handleChange} className={inputClass("name")} placeholder="John Smith" />
                   {errors.name && <p className="mt-1.5 text-xs text-red-400">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className={`block text-sm font-medium mb-2 ${isDark ? "text-[#C4F047]" : "text-blue-500"}`}>Email</label>
+                  <label className={`block text-sm font-medium mb-2 ${isDark ? "text-[#C4F047]" : "text-blue-500"}`}>Work Email</label>
                   <input type="email" name="email" value={formData.email} onChange={handleChange} className={inputClass("email")} placeholder="john@example.com" />
                   {errors.email && <p className="mt-1.5 text-xs text-red-400">{errors.email}</p>}
                 </div>
@@ -129,14 +141,14 @@ export default function ContactContent() {
 
               {/* Service */}
               <div>
-                <label className={`block text-sm font-medium mb-2 ${isDark ? "text-[#C4F047]" : "text-blue-500"}`}>Service Needed</label>
+                <label className={`block text-sm font-medium mb-2 ${isDark ? "text-[#C4F047]" : "text-blue-500"}`}>Project Type</label>
                 <select 
                   name="service" 
                   value={formData.service} 
                   onChange={handleChange} 
                   className={`${inputClass("service")} ${!formData.service ? (isDark ? "text-zinc-600" : "text-gray-400") : ""}`}
                 >
-                  <option value="">Select a service...</option>
+                  <option value="">Select a project type...</option>
                   {services.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
                 {errors.service && <p className="mt-1.5 text-xs text-red-400">{errors.service}</p>}
@@ -144,20 +156,20 @@ export default function ContactContent() {
 
               {/* Message */}
               <div>
-                <label className={`block text-sm font-medium mb-2 ${isDark ? "text-[#C4F047]" : "text-blue-500"}`}>Message</label>
-                <textarea name="message" value={formData.message} onChange={handleChange} rows={5} className={`${inputClass("message")} resize-none`} placeholder="Tell me about your project..." />
+                <label className={`block text-sm font-medium mb-2 ${isDark ? "text-[#C4F047]" : "text-blue-500"}`}>Tell me about your project</label>
+                <textarea name="message" value={formData.message} onChange={handleChange} rows={5} className={`${inputClass("message")} resize-none`} placeholder="Share your idea, campaign, timeline, or simply say hello..." />
                 {errors.message && <p className="mt-1.5 text-xs text-red-400">{errors.message}</p>}
               </div>
 
               {/* Status messages */}
               {status === "success" && (
                 <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl">
-                  <p className="text-green-400 text-sm">Message sent! I'll get back to you soon.</p>
+                  <p className="text-green-400 text-sm">Thanks for reaching out! Your message is on its way. I'll get back to you as soon as possible.</p>
                 </motion.div>
               )}
               {status === "send_error" && (
                 <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
-                  <p className="text-red-400 text-sm">Something went wrong. Email me at siddarth8818@gmail.com</p>
+                  <p className="text-red-400 text-sm">I couldn't send your message this time. Feel free to reach out directly via email.</p>
                 </motion.div>
               )}
               {status === "error" && (
@@ -179,7 +191,7 @@ export default function ContactContent() {
                   onMouseEnter={() => setCursorType("active")}
                   onMouseLeave={resetCursor}
                 >
-                  {loading ? "Sending…" : "Send Message"}
+                  {loading ? "Sending…" : "Let's Talk"}
                 </button>
               </MagneticButton>
             </form>
@@ -197,7 +209,17 @@ export default function ContactContent() {
                 sizes="420px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-md">
+                Available
+              </div>
+              <div className="absolute bottom-4 left-4 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-md">
+                AI-first Editor
+              </div>
             </div>
+
+            <p className={`max-w-sm mx-auto lg:mx-0 text-sm italic leading-relaxed ${isDark ? "text-zinc-500" : "text-gray-500"}`}>
+              Creating stories powered by creativity and AI.
+            </p>
 
             {/* Contact details */}
             <div className="space-y-4 ">
@@ -211,27 +233,41 @@ export default function ContactContent() {
                     {href ? (
                       <a href={href} className={`text-sm font-medium transition-colors ${isDark ? "text-zinc-300 hover:text-[#C4F047]" : "text-gray-700 hover:text-blue-500"}`}>{value}</a>
                     ) : (
-                      <p className={`text-sm font-medium ${isDark ? "text-zinc-300" : "text-gray-700"}`}>{value}</p>
+                      <div className={`text-sm font-medium ${isDark ? "text-zinc-300" : "text-gray-700"}`}>
+                        <p>{value}</p>
+                        {label === "Location" && (
+                          <p className={`text-xs mt-0.5 ${isDark ? "text-zinc-500" : "text-gray-500"}`}>{"Available Worldwide"}</p>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>
               ))}
             </div>
 
+            <div className={`rounded-2xl border p-5 ${isDark ? "border-zinc-800 bg-zinc-900/40" : "border-gray-200 bg-white"}`}>
+              <p className={`text-xs uppercase tracking-[0.3em] font-medium mb-4 ${isDark ? "text-zinc-500" : "text-gray-400"}`}>
+                Currently Available
+              </p>
+              <div className="space-y-3 text-sm font-medium">
+                {[
+                  "Full-time",
+                  "Freelance",
+                  "Creative Collaboration",
+                  "AI Video Production",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <span className={`flex h-5 w-5 items-center justify-center rounded-full ${isDark ? "bg-[#C4F047]/10 text-[#C4F047]" : "bg-blue-50 text-blue-500"}`}>
+                      ✓
+                    </span>
+                    <span className={isDark ? "text-zinc-300" : "text-gray-700"}>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Social links */}
-            <div className="flex gap-3">
-              <MagneticButton>
-                <a
-                  href="https://github.com/theopendraft"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-none ${isDark ? "border-zinc-700 text-zinc-400 hover:border-[#C4F047] hover:text-[#C4F047]" : "border-gray-300 text-gray-500 hover:border-blue-500 hover:text-blue-500"}`}
-                  onMouseEnter={() => setCursorType("active")}
-                  onMouseLeave={resetCursor}
-                >
-                  GitHub <ArrowUpRight size={11} />
-                </a>
-              </MagneticButton>
+            <div className="flex flex-wrap gap-3">
               <MagneticButton>
                 <a
                   href="https://www.linkedin.com/in/pankaj-yadav-5998b3249/"
@@ -242,6 +278,42 @@ export default function ContactContent() {
                   onMouseLeave={resetCursor}
                 >
                   LinkedIn <ArrowUpRight size={11} />
+                </a>
+              </MagneticButton>
+              <MagneticButton>
+                <a
+                  href="https://www.instagram.com/the_open_draft"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-none ${isDark ? "border-zinc-700 text-zinc-400 hover:border-[#C4F047] hover:text-[#C4F047]" : "border-gray-300 text-gray-500 hover:border-blue-500 hover:text-blue-500"}`}
+                  onMouseEnter={() => setCursorType("active")}
+                  onMouseLeave={resetCursor}
+                >
+                  Instagram <ArrowUpRight size={11} />
+                </a>
+              </MagneticButton>
+              <MagneticButton>
+                <a
+                  href="https://www.youtube.com/@theopendraft"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-none ${isDark ? "border-zinc-700 text-zinc-400 hover:border-[#C4F047] hover:text-[#C4F047]" : "border-gray-300 text-gray-500 hover:border-blue-500 hover:text-blue-500"}`}
+                  onMouseEnter={() => setCursorType("active")}
+                  onMouseLeave={resetCursor}
+                >
+                  YouTube <ArrowUpRight size={11} />
+                </a>
+              </MagneticButton>
+              <MagneticButton>
+                <a
+                  href="https://github.com/theopendraft"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-none ${isDark ? "border-zinc-700 text-zinc-400 hover:border-[#C4F047] hover:text-[#C4F047]" : "border-gray-300 text-gray-500 hover:border-blue-500 hover:text-blue-500"}`}
+                  onMouseEnter={() => setCursorType("active")}
+                  onMouseLeave={resetCursor}
+                >
+                  GitHub <ArrowUpRight size={11} />
                 </a>
               </MagneticButton>
             </div>

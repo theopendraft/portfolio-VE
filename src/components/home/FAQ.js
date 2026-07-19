@@ -73,12 +73,12 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className={`text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight uppercase leading-tight ${
+              className={`text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight ${
                 theme === "dark" ? "text-white" : "text-gray-900"
               }`}
               style={titleStyle}
             >
-              Frequently Asked Questions
+              Things You Might Wonder
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -93,8 +93,9 @@ export default function FAQ() {
                 theme === "dark" ? "text-zinc-400" : "text-gray-600"
               }`}
             >
-              Have questions? I've compiled answers to the most common inquiries
-              about my services, process, and approach.
+              Whether you're a creative agency, startup, or brand, here are a
+              few things people usually ask before we start working together.
+              Still have a question? Reach out anytime.
             </motion.p>
           </div>
 

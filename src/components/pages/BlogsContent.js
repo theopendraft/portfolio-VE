@@ -4,7 +4,16 @@ import { motion } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 import MagneticButton from "@/components/shared/MagneticButton";
 import { useCursor } from "@/hooks/useCursor";
-import { PenLine, ArrowUpRight } from "lucide-react";
+import { Sparkles, ArrowUpRight } from "lucide-react";
+
+const TOPICS = [
+  "AI Video Workflows",
+  "Motion Graphics",
+  "Creative Strategy",
+  "Google Veo & Flow",
+  "Storytelling",
+  "Behind the Edit",
+];
 
 export default function BlogsContent() {
   const { theme } = useTheme();
@@ -29,7 +38,7 @@ export default function BlogsContent() {
             isDark ? "bg-zinc-800" : "bg-gray-200"
           }`}
         >
-          <PenLine
+          <Sparkles
             size={28}
             className={isDark ? "text-[#C4F047]" : "text-blue-500"}
           />
@@ -41,7 +50,7 @@ export default function BlogsContent() {
             isDark ? "text-zinc-500" : "text-gray-400"
           }`}
         >
-          Writing
+          Insights
         </p>
 
         {/* Heading */}
@@ -51,18 +60,51 @@ export default function BlogsContent() {
           }`}
           style={{ fontFamily: "'Haffer', sans-serif", letterSpacing: "-0.03em" }}
         >
-          BLOGS
+          INSIGHTS
         </h1>
+
+        <div
+          className={`inline-flex items-center rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] mb-6 ${
+            isDark
+              ? "border-[#C4F047]/20 bg-[#C4F047]/10 text-[#C4F047]"
+              : "border-blue-100 bg-blue-50 text-blue-600"
+          }`}
+        >
+          Coming Soon
+        </div>
 
         {/* Sub */}
         <p
-          className={`text-base leading-relaxed mb-10 ${
+          className={`text-base leading-relaxed max-w-lg mx-auto ${
             isDark ? "text-zinc-400" : "text-gray-600"
           }`}
         >
-          Writing on full-stack engineering, system design, and lessons from
-          building production software. First post coming soon.
+          Sharing ideas on AI-assisted video editing, storytelling, motion graphics, creative strategy, content marketing, and the future of visual storytelling.
         </p>
+
+        <div className="mt-8 mb-10">
+          <p
+            className={`text-xs uppercase tracking-[0.3em] font-medium mb-4 ${
+              isDark ? "text-zinc-500" : "text-gray-400"
+            }`}
+          >
+            Upcoming Topics
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {TOPICS.map((topic) => (
+              <span
+                key={topic}
+                className={`rounded-full border px-3 py-1.5 text-xs font-medium ${
+                  isDark
+                    ? "border-zinc-800 bg-zinc-900/60 text-zinc-300"
+                    : "border-gray-200 bg-white text-gray-700"
+                }`}
+              >
+                {topic}
+              </span>
+            ))}
+          </div>
+        </div>
 
         {/* Accent bar */}
         <div
@@ -83,7 +125,7 @@ export default function BlogsContent() {
             onMouseEnter={() => setCursorType("active")}
             onMouseLeave={resetCursor}
           >
-            See my projects instead
+            View My Work
             <ArrowUpRight size={14} />
           </a>
         </MagneticButton>

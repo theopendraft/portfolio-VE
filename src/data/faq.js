@@ -1,55 +1,43 @@
 /**
  * FAQ Data
- * Common questions answered to remove doubts and build trust
+ * Recruiter-focused questions about workflow, collaboration, and direction
  */
 
 export const faqs = [
   {
     id: 1,
-    question: "What is your typical project timeline?",
+    question: "Do you work remotely?",
     answer:
-      "Project timelines vary depending on scope and complexity. A standard website typically takes 4-6 weeks from kickoff to launch, while more complex applications can take 8-12 weeks. I provide detailed timelines during our initial consultation and keep you updated throughout the process.",
+      "Yes. I'm open to remote, hybrid, and on-site opportunities. I've collaborated with distributed teams as well as in-office creative environments.",
   },
   {
     id: 2,
-    question: "Do you work with clients remotely?",
+    question: "What kind of videos do you enjoy creating?",
     answer:
-      "Yes, I work with clients worldwide. I've developed efficient remote workflows including regular video calls, project management tools, and clear communication channels to ensure smooth collaboration regardless of location.",
+      "I enjoy AI-assisted commercials, UGC ads, documentaries, podcasts, cinematic edits, educational content, and performance-driven social media videos.",
   },
   {
     id: 3,
-    question: "What technologies do you specialize in?",
+    question: "Which tools do you use?",
     answer:
-      "I specialize in modern web technologies including React, Next.js, TypeScript, Node.js, and various databases. I stay current with industry trends and choose the best tools for each project's specific needs rather than forcing a one-size-fits-all approach.",
+      "My primary workflow combines Premiere Pro, After Effects, DaVinci Resolve, ChatGPT, Claude, Veo, Google Flow, ElevenLabs, Photoshop, and other AI production tools depending on the project.",
   },
   {
     id: 4,
-    question: "How do you handle project communication?",
+    question: "Do you only edit videos?",
     answer:
-      "I believe in transparent, frequent communication. You'll receive regular updates via your preferred channel (Slack, email, or video calls). I provide weekly progress reports and am available for questions throughout the project lifecycle.",
+      "Beyond editing, I help shape ideas—from scripting and creative strategy to AI asset generation, motion graphics, sound design, and final delivery.",
   },
   {
     id: 5,
-    question: "What is your pricing structure?",
+    question: "Can you work with AI-generated content?",
     answer:
-      "I offer both project-based and hourly pricing depending on your needs. After understanding your requirements, I provide a detailed proposal with clear deliverables and costs. I believe in transparent pricing with no hidden fees.",
+      "Absolutely. I actively use AI throughout my workflow for ideation, scripting, visual generation, voice, automation, and production while keeping the final output human-centered.",
   },
   {
     id: 6,
-    question: "Do you provide ongoing support after launch?",
+    question: "What are you looking for next?",
     answer:
-      "Yes, I offer maintenance and support packages to ensure your project continues running smoothly. This includes bug fixes, security updates, performance monitoring, and feature enhancements based on your evolving needs.",
-  },
-  {
-    id: 7,
-    question: "Can you help with existing projects?",
-    answer:
-      "Absolutely. I frequently work on existing codebases, whether it's adding new features, fixing bugs, improving performance, or refactoring legacy code. I can quickly assess your current setup and provide recommendations.",
-  },
-  {
-    id: 8,
-    question: "What makes you different from other developers?",
-    answer:
-      "I combine technical expertise with strong design sensibility and business understanding. I don't just write code-I solve problems. My focus is on delivering solutions that look great, perform well, and actually move your business forward.",
+      "I'm looking to collaborate with creative agencies, startups, production houses, and AI-first companies that value storytelling, experimentation, and impactful visual communication.",
   },
 ];

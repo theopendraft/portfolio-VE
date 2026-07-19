@@ -8,25 +8,30 @@ import { useCursor } from "@/hooks/useCursor";
 import AnimatedCard from "@/components/shared/AnimatedCard";
 import MagneticButton from "@/components/shared/MagneticButton";
 
-const CYCLING_WORDS = ["ENGINEER", "DEVELOPER", "DESIGNER"];
+const CYCLING_WORDS = ["EDITOR", "STORYTELLER", "STRATEGIST"];
+const CYCLING_WORD_WIDTH = "12ch";
 
 const TECH_STACK = [
-  "React.js",
-  "Node.js",
-  "PostgreSQL",
-  "Express",
-  "JavaScript",
-  "TypeScript",
-  "Prisma",
-  "REST APIs",
-  "Tailwind CSS",
-  "Framer Motion",
-  "Python",
-  "Docker",
-  "Git",
-  "LLM Integration",
-  "Next.js",
-  "SQL",
+  "Premiere Pro",
+  "After Effects",
+  "DaVinci Resolve",
+  "Motion Graphics",
+  "Storytelling",
+  "UGC Ads",
+  "AI Video",
+  "ChatGPT",
+  "Claude",
+  "Veo",
+  "Kling",
+  "Google Flow",
+  "ElevenLabs",
+  "Color Grading",
+  "Sound Design",
+  "Performance Marketing",
+  "Creative Strategy",
+  "Prompt Engineering",
+  "Remotion",
+  "n8n",
 ];
 
 export default function HeroSection() {
@@ -84,7 +89,7 @@ export default function HeroSection() {
                 theme === "dark" ? "text-zinc-500" : "text-gray-400"
               }`}
             >
-              Full-Stack Software Engineer
+              AI Video Editor • Creative Strategist
             </motion.p>
 
             {/* Heading: DIGITAL + cycling word stacked */}
@@ -98,7 +103,7 @@ export default function HeroSection() {
                 }`}
                 style={titleStyle}
               >
-                DIGITAL
+                VISUAL
               </motion.h1>
               <div className="overflow-hidden" style={{ height: "4.0em" }}>
                 <AnimatePresence mode="wait">
@@ -108,10 +113,10 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: "-100%" }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className={`text-[clamp(3rem,14vw,5rem)] font-bold tracking-tight leading-none ${
+                    className={`mx-auto text-[clamp(3rem,14vw,5rem)] font-bold tracking-tight leading-none ${
                       theme === "dark" ? "text-white" : "text-blue-500"
                     }`}
-                    style={titleStyle}
+                    style={{ ...titleStyle, width: CYCLING_WORD_WIDTH, whiteSpace: "nowrap" }}
                   >
                     {CYCLING_WORDS[wordIndex]}
                   </motion.h1>
@@ -119,12 +124,14 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Card (mobile, compact) */}
+
+            {/* Cards (mobile, compact) */}
+            <div></div>
             {isMobile && (
               <div className="w-full flex justify-center my-4">
                 <AnimatedCard
                   imageSrc="/image/Pankaj_Yadav.jpg"
-                  alt="Pankaj Yadav - Full-Stack Engineer"
+                  alt="Pankaj Yadav - AI Video Editor"
                   rotateOnScroll={false}
                   className="w-64 h-80"
                 >
@@ -152,8 +159,8 @@ export default function HeroSection() {
                 theme === "dark" ? "text-zinc-400" : "text-gray-600"
               }`}
             >
-              React · Node.js · PostgreSQL - building performant,
-              production-grade web systems from Chennai, India.
+              Helping brands tell better stories through AI-assisted editing,
+              motion graphics, creative strategy, and performance-driven content.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -174,7 +181,7 @@ export default function HeroSection() {
                 View Work
               </a>
               <a
-                href="/resume/Pankaj_Yadav_SDE_Resume.pdf"
+                href="/resume/Pankaj_Yadav_AI_Video_Editor.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`px-5 py-2.5 rounded-full border-2 font-semibold text-sm uppercase tracking-wider transition-all duration-300 ${
@@ -183,7 +190,7 @@ export default function HeroSection() {
                     : "border-gray-400 text-gray-900 hover:border-blue-500 hover:text-blue-500"
                 }`}
               >
-                Download CV
+                Download Resume
               </a>
             </motion.div>
           </div>
@@ -201,7 +208,7 @@ export default function HeroSection() {
                   theme === "dark" ? "text-zinc-500" : "text-gray-400"
                 }`}
               >
-                Full-Stack Software Engineer
+                AI Video Editor • Creative Strategist
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, x: -20 }}
@@ -212,7 +219,7 @@ export default function HeroSection() {
                 }`}
                 style={titleStyle}
               >
-                DIGITAL
+                VISUAL
               </motion.h1>
             </div>
 
@@ -230,10 +237,10 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: "-100%" }}
                     transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                    className={`text-8xl font-bold tracking-tight leading-none ${
+                    className={`mx-auto text-8xl font-bold tracking-tight leading-none ${
                       theme === "dark" ? "text-white" : "text-blue-500"
                     }`}
-                    style={titleStyle}
+                    style={{ ...titleStyle, width: CYCLING_WORD_WIDTH, whiteSpace: "nowrap" }}
                   >
                     {CYCLING_WORDS[wordIndex]}
                   </motion.h1>
@@ -249,8 +256,8 @@ export default function HeroSection() {
                   theme === "dark" ? "text-zinc-400" : "text-gray-600"
                 }`}
               >
-                React · Node.js · PostgreSQL — building performant,
-                production-grade web systems from Chennai, India.
+                Helping brands tell better stories through AI-assisted editing,
+                motion graphics, creative strategy, and performance-driven content.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -276,7 +283,7 @@ export default function HeroSection() {
                 </MagneticButton>
                 <MagneticButton>
                   <a
-                    href="/resume/Pankaj_Yadav_SDE_Resume.pdf"
+                    href="/resume/Pankaj_Yadav_AI_Video_Editor.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`px-6 py-3 rounded-full border-2 font-semibold text-sm uppercase tracking-wider transition-all duration-300 cursor-none ${
@@ -287,7 +294,7 @@ export default function HeroSection() {
                     onMouseEnter={() => setCursorType("active")}
                     onMouseLeave={resetCursor}
                   >
-                    Download CV
+                    Download Resume
                   </a>
                 </MagneticButton>
               </motion.div>

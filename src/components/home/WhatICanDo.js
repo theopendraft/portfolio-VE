@@ -89,7 +89,7 @@ export default function WhatICanDo() {
                   theme === "dark" ? "text-zinc-500" : "text-gray-400"
                 }`}
               >
-                Capabilities
+                EXPERTISE
               </motion.p>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -101,7 +101,7 @@ export default function WhatICanDo() {
                 }`}
                 style={titleStyle}
               >
-                What I Can Do
+                Creative Expertise
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -112,7 +112,7 @@ export default function WhatICanDo() {
                   theme === "dark" ? "text-zinc-400" : "text-gray-600"
                 }`}
               >
-                Click any capability to see the tools, context, and outcomes.
+                Explore the creative services, production workflows, and AI-powered processes behind every project.
               </motion.p>
             </div>
 
@@ -285,7 +285,7 @@ export default function WhatICanDo() {
                                     }`}
                                     style={titleStyle}
                                   >
-                                    25%
+                                    40+
                                   </span>
                                   <span
                                     className={`text-xs leading-tight ${
@@ -294,7 +294,7 @@ export default function WhatICanDo() {
                                   >
                                     API response time improvement
                                     <br />
-                                    measured in production at Adrig AI
+                                    AI-assisted videos produced professionally
                                   </span>
                                 </div>
                               )}
@@ -320,7 +320,7 @@ export default function WhatICanDo() {
               >
                 <AnimatedCard
                   imageSrc="/image/Pankaj_Yadav_2.jpg"
-                  alt="Skills showcase"
+                  alt="Creative Portfolio"
                   rotateOnScroll={false}
                   className="w-80 h-120"
                 >

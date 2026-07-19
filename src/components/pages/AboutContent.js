@@ -7,40 +7,77 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { useCursor } from "@/hooks/useCursor";
 import MagneticButton from "@/components/shared/MagneticButton";
 
-// ─── Data ────────────────────────────────────────────────────────────────────
-
-// ── To add a new role: push a new object into this array.
-// ── Roles are displayed newest-first as a connected timeline.
 const experience = [
   {
-    company: "Adrig AI Technologies",
-    url: "https://www.adrig.co.in/",
-    role: "Software Developer",
-    type: "Full-Time",
-    period: "Jan 2026 – Present",
-    location: "Chennai, Tamil Nadu",
+    company: "Blue Minch",
+    url: "https://blueminch.com/",
+    role: "AI Video Editor",
+    type: "AI Production",
+    period: "Jul 2026 – Present",
+    location: "Siliguri, India",
     current: true,
     highlights: [
-      "Delivered end-to-end full-stack features for enterprise AI workflow systems using React and Node.js.",
-      "Designed and implemented REST APIs handling transactional database operations and secure data flows.",
-      "Optimized SQL queries and indexing strategies, improving backend response time by 25%.",
-      "Refactored frontend state management to reduce redundant API calls and improve UI responsiveness.",
-      "Resolved cross-layer production issues (UI, API, DB), reducing recurring defects by 30%.",
-      "Contributed to Agile sprint planning and peer code reviews across the engineering team.",
+      "Produced 40+ AI-assisted commercials, UGC ads, podcasts, and branded campaigns for Kuku FM, Pocket FM, Seekho, and other digital-first brands.",
+      "Delivered 3–4 production-ready videos daily while maintaining creative quality and fast turnaround times.",
+      "Leveraged Adobe Premiere Pro, After Effects, Kling, Veo, Google Flow, and ElevenLabs to reduce production time by 35% through AI-assisted workflows.",
+      "Built reusable templates, presets, and editing SOPs that improved team editing efficiency by 40%.",
+      "Collaborated with brand managers, scriptwriters, and designers to produce high-retention, performance-focused social content.",
     ],
   },
   {
-    company: "Adrig AI Technologies",
-    url: "https://www.adrig.co.in/",
-    role: "SDE Intern",
-    type: "Internship",
-    period: "Oct 2025 – Jan 2026",
-    location: "Chennai, Tamil Nadu",
+    company: "Web3Spell",
+    url: "#",
+    role: "Video Editor",
+    type: "Long-form",
+    period: "Jul 2024 – Nov 2024",
+    location: "Vidisha, India",
     current: false,
     highlights: [
-      "Onboarded onto production AI workflow systems and began shipping features within the first sprint.",
-      "Worked across the React frontend and Node.js backend, building reusable components and API integrations.",
-      "Participated in Agile sprint cycles, code reviews, and cross-team technical discussions.",
+      "Produced 25+ long-form educational videos featuring animations, tutorials, and structured visual storytelling.",
+      "Improved audience engagement by 28% through stronger pacing, motion graphics, and content optimization.",
+      "Worked closely with educators to transform technical concepts into engaging visual content.",
+    ],
+  },
+  {
+    company: "ISKCON Ujjain",
+    url: "#",
+    role: "Video Editor",
+    type: "Social Media",
+    period: "Dec 2023 – May 2024",
+    location: "Ujjain, India",
+    current: false,
+    highlights: [
+      "Produced Instagram Reels and promotional campaigns generating 32M+ impressions across social platforms.",
+      "Covered GBC College, documenting sessions featuring 25+ international spiritual leaders.",
+      "Captured and edited professional footage using Sony cinema camera systems, delivering event highlights and promotional content.",
+    ],
+  },
+  {
+    company: "BrandArtist",
+    url: "#",
+    role: "Video Editor",
+    type: "Commercial",
+    period: "Jul 2023 – Oct 2023",
+    location: "Remote",
+    current: false,
+    highlights: [
+      "Edited promotional videos, commercials, and branded marketing content for digital campaigns.",
+      "Enhanced visual storytelling through motion graphics, typography, transitions, and sound design.",
+      "Collaborated remotely with creative teams to deliver client-ready assets within tight deadlines.",
+    ],
+  },
+  {
+    company: "Oll.co",
+    url: "#",
+    role: "Video Editing Intern",
+    type: "Internship",
+    period: "Dec 2022 – Mar 2023",
+    location: "Remote",
+    current: false,
+    highlights: [
+      "Produced promotional videos, YouTube educational content, and commercial edits.",
+      "Managed projects from concept development through post-production and final delivery.",
+      "Built foundational skills in editing workflows, storytelling, and client communication.",
     ],
   },
 ];
@@ -52,32 +89,59 @@ const education = [
     location: "Vidisha, Madhya Pradesh",
     period: "2022 - 2026",
     cgpa: "7.27",
-    note: null, // placeholder - add relevant coursework, electives, or thesis here
+    note: "Formal training that strengthened my systems thinking and problem-solving approach.",
   },
 ];
 
 const recognition = [
   {
-    badge: "National Finalist",
-    title: "Smart India Hackathon 2024",
+    badge: "Leadership",
+    title: "Board Member - Wiki Club SATI",
     description:
-      "Ranked in the top 2 nationally among 100+ competing teams. Led the engineering effort to build a production-grade government-scale solution within 36 hours.",
+      "Organize Wikimedia initiatives, lead technical and media workshops, mentor new contributors, and help grow one of SATI's most active student communities.",
+  },
+  {
+    badge: "International",
+    title: "Wikimania 2025",
+    description:
+      "Awarded a full scholarship to attend Wikimania 2025 in Nairobi, collaborating with contributors and open-knowledge leaders from around the world.",
+  },
+  {
+    badge: "Open Source",
+    title: "Wiki Movement",
+    description:
+      "Jury Member for Wiki Loves Folklore 2025 and Core Team Member of Wiki Science Competition 2025, supporting international Wikimedia campaigns.",
   },
   {
     badge: "Founder",
     title: "The Creator's Den",
     description:
-      "Founded a creative-tech student community bridging design thinking and software engineering - cultivating a space for student makers and builders at university level.",
+      "Founded a student-led creative community connecting designers, filmmakers, developers, and storytellers through collaborative projects and workshops.",
   },
   {
-    badge: "Co-Organiser",
+    badge: "Community",
     title: "Google Developer Group, SATI",
     description:
-      "Co-organised developer workshops, tech talks, and open-source events at the GDG chapter - building technical culture and developer community across 200+ students.",
+      "Co-organised technical workshops, open-source events, and developer meetups, helping build a culture of learning for 200+ students.",
+  },
+  {
+    badge: "Speaker",
+    title: "Workshops & Sessions",
+    description:
+      "Delivered sessions on video editing, Wikimedia, design thinking, and technical topics, helping students explore creativity and technology together.",
   },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
+const inspirationCards = [
+  "Cinema",
+  "Documentaries",
+  "Travel",
+  "Culture",
+  "Technology",
+  "Open Knowledge",
+  "Photography",
+  "Design",
+];
 
 export default function AboutContent() {
   const { theme } = useTheme();
@@ -114,17 +178,21 @@ export default function AboutContent() {
     transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
   });
 
+  const quickStats = [
+    { label: "Current Focus", value: "AI-assisted Video Production", sub: "Motion graphics, editing, strategy" },
+    { label: "Experience", value: "2+ Years", sub: "Software + creative production" },
+    { label: "Based In", value: "India", sub: "Open to remote & on-site" },
+    { label: "Open For", value: "Full-time", sub: "Freelance and collaborations" },
+  ];
+
   return (
     <main
       className={`min-h-screen transition-colors duration-500 ${
         theme === "dark" ? "bg-transparent" : "bg-white"
       }`}
     >
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative px-6 sm:px-10 lg:px-16 pt-38 pb-0 max-w-7xl mx-auto overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-0 lg:gap-16 items-end min-h-[82vh]">
-
-          {/* LEFT — text block */}
           <div className="flex flex-col justify-end pb-16 lg:pb-20 z-10">
             <motion.p
               {...fadeUp(0.08)}
@@ -132,13 +200,12 @@ export default function AboutContent() {
                 theme === "dark" ? "text-zinc-500" : "text-gray-400"
               }`}
             >
-              Full-Stack Engineer · Chennai, India
+              AI Video Editor · Creative Strategist · India
             </motion.p>
 
-            {/* Giant name */}
             <motion.h1
               {...fadeUp(0.12)}
-              className={`font-bold leading-[0.9] tracking-tight mb-8  ${
+              className={`font-bold leading-[0.9] tracking-tight mb-8 ${
                 theme === "dark" ? "text-white" : "text-gray-900"
               }`}
               style={{ ...titleStyle, fontSize: "clamp(4rem, 10vw, 9rem)" }}
@@ -150,12 +217,12 @@ export default function AboutContent() {
               </span>
             </motion.h1>
 
-            {/* Tags row */}
             <motion.div {...fadeUp(0.18)} className="flex flex-wrap gap-2 mb-7">
               {[
-                { label: "Available for Work", accent: true },
-                { label: "React · Node.js · PostgreSQL", accent: false },
+                { label: "AI-first Editor", accent: true },
                 { label: "Open to Opportunities", accent: false },
+                { label: "Creative Strategy", accent: false },
+                { label: "Motion Graphics", accent: false },
               ].map(({ label, accent }) => (
                 <span
                   key={label}
@@ -174,36 +241,19 @@ export default function AboutContent() {
               ))}
             </motion.div>
 
-            {/* One-liner bio */}
             <motion.p
               {...fadeUp(0.22)}
               className={`text-base leading-relaxed max-w-md mb-8 ${
                 theme === "dark" ? "text-zinc-400" : "text-gray-600"
               }`}
             >
-              I build production-grade web systems — full-stack, from schema
-              design to polished UI. Currently shipping AI-integrated enterprise
-              features at{" "}
-              <a
-                href="https://www.adrig.co.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`font-medium underline underline-offset-2 transition-colors ${
-                  theme === "dark"
-                    ? "text-[#C4F047] hover:text-[#d4ff5a]"
-                    : "text-blue-500 hover:text-blue-600"
-                }`}
-              >
-                Adrig AI Technologies
-              </a>
-              .
+              I help brands, startups, and creators turn ideas into cinematic stories through AI-assisted editing, motion graphics, and creative strategy. My background in software engineering gives me a unique systems-thinking approach to modern content production.
             </motion.p>
 
-            {/* CTAs */}
             <motion.div {...fadeUp(0.26)} className="flex flex-wrap gap-3">
               <MagneticButton>
                 <a
-                  href="/resume/Pankaj_Yadav_SDE_Resume.pdf"
+                  href="/resume/Pankaj_Yadav_AI_Video_Editor.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-wider transition-all duration-300 ${
@@ -217,7 +267,7 @@ export default function AboutContent() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  Download CV
+                  View Resume
                 </a>
               </MagneticButton>
               <MagneticButton>
@@ -237,7 +287,6 @@ export default function AboutContent() {
             </motion.div>
           </div>
 
-          {/* RIGHT — portrait, flush to bottom */}
           <motion.div
             {...fadeUp(0.15)}
             className="hidden lg:block relative self-end h-[75vh] max-h-[680px] rounded-t-3xl overflow-hidden"
@@ -250,7 +299,6 @@ export default function AboutContent() {
               sizes="420px"
               priority
             />
-            {/* Bottom fade */}
             <div
               className={`absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t ${
                 theme === "dark" ? "from-zinc-950" : "from-white"
@@ -258,7 +306,6 @@ export default function AboutContent() {
             />
           </motion.div>
 
-          {/* Mobile portrait */}
           <motion.div
             {...fadeUp(0.18)}
             className="lg:hidden relative w-full h-64 rounded-2xl overflow-hidden mt-4 mb-10"
@@ -275,7 +322,6 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── Story ────────────────────────────────────────────────────────── */}
       <section
         className={`px-6 sm:px-10 lg:px-16 py-16 sm:py-20 transition-colors duration-500 ${
           theme === "dark" ? "bg-zinc-900/40" : "bg-gray-50"
@@ -293,7 +339,7 @@ export default function AboutContent() {
               }`}
               style={titleStyle}
             >
-              The Engineer Behind the Work
+              The Story Behind The Editor
             </motion.h2>
             <motion.div
               {...fadeUp(0.1)}
@@ -302,46 +348,20 @@ export default function AboutContent() {
               }`}
             >
               <p>
-                I'm a Full-Stack Software Engineer specializing in React,
-                Node.js, and PostgreSQL - with hands-on experience building
-                production-grade web and AI-integrated systems. My focus is on
-                delivering reliable, scalable features across the entire stack:
-                from schema design and API architecture down to frontend state
-                management.
+                I started as a software engineer, building AI-powered products and solving technical problems. Over time, I realized what excited me most was not only writing code - it was telling stories, designing experiences, and creating visuals that connect with people.
               </p>
               <p>
-                I believe great software is reliable first, performant second,
-                and polished third. That means investing in solid data models,
-                clean API design, and a UI that doesn't fight its own data
-                layer. I take a structured debugging approach and prefer
-                understanding root causes over quick patches.
+                Today I combine both worlds. I use AI, motion graphics, editing, and creative strategy together with an engineering mindset to produce videos that are both visually engaging and strategically effective.
               </p>
               <p>
-                Outside of shipping features, I actively engage with the
-                developer community - as a GDG co-organiser at SATI and the
-                founder of{" "}
-                <span
-                  className={
-                    theme === "dark" ? "text-zinc-200" : "text-gray-800"
-                  }
-                >
-                  The Creator's Den
-                </span>
-                , a creative-tech community where student builders share what
-                they're making.
+                Beyond client work, I enjoy building communities, speaking at events, contributing to Wikimedia, and exploring how AI is reshaping storytelling.
               </p>
             </motion.div>
           </div>
 
-          {/* Quick stats */}
           <motion.div {...fadeUp(0.15)} className="space-y-6">
             {sectionLabel("At a Glance")}
-            {[
-              { label: "Current Role", value: "Software Developer", sub: "Adrig AI Technologies" },
-              { label: "Education", value: "B.Tech CSE", sub: "SATI Vidisha · CGPA 7.27" },
-              { label: "Location", value: "Chennai", sub: "Tamil Nadu, India" },
-              { label: "Status", value: "Available", sub: "Open to new opportunities" },
-            ].map((item) => (
+            {quickStats.map((item) => (
               <div
                 key={item.label}
                 className={`pb-5 border-b last:border-0 ${
@@ -375,24 +395,67 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── Experience ───────────────────────────────────────────────────── */}
+      {divider}
+
+      <section className="px-6 sm:px-10 lg:px-16 py-10 sm:py-16 max-w-7xl mx-auto">
+        <motion.div {...fadeUp(0)} className="mb-12">
+          {sectionLabel("Inspiration")}
+          <h2
+            className={`text-4xl sm:text-5xl font-bold tracking-tight ${
+              theme === "dark" ? "text-white" : "text-gray-900"
+            }`}
+            style={titleStyle}
+          >
+            Things That Inspire Me
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          {inspirationCards.map((item, index) => (
+            <motion.div
+              key={item}
+              {...fadeUp(index * 0.05)}
+              className={`rounded-2xl border p-5 sm:p-6 text-center ${
+                theme === "dark"
+                  ? "bg-zinc-900 border-zinc-800"
+                  : "bg-white border-gray-200"
+              }`}
+            >
+              <p
+                className={`text-sm sm:text-base font-semibold ${
+                  theme === "dark" ? "text-white" : "text-gray-900"
+                }`}
+              >
+                {item}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 max-w-7xl mx-auto">
         <div className="py-6 lg:py-16">
           <motion.div {...fadeUp(0)} className="mb-14">
-            {sectionLabel("Experience")}
+            {sectionLabel("Journey")}
             <h2
               className={`text-4xl sm:text-5xl font-bold tracking-tight ${
                 theme === "dark" ? "text-white" : "text-gray-900"
               }`}
               style={titleStyle}
             >
-              Where I've Worked
+              Career Journey
             </h2>
+            <motion.p
+              {...fadeUp(0.06)}
+              className={`mt-4 max-w-3xl text-base sm:text-lg leading-relaxed ${
+                theme === "dark" ? "text-zinc-400" : "text-gray-600"
+              }`}
+            >
+              4+ years of experience across AI-assisted video production, branded content, educational media, and high-performance social campaigns.
+            </motion.p>
           </motion.div>
 
-          {/* Connected timeline — add new roles to the experience[] array above */}
           <div className="relative">
-            {/* Vertical connector line */}
             <div
               className={`absolute left-[7px] top-3 bottom-3 w-px ${
                 theme === "dark" ? "bg-zinc-800" : "bg-gray-200"
@@ -406,7 +469,6 @@ export default function AboutContent() {
                   {...fadeUp(i * 0.1)}
                   className="relative pl-10 pb-10 last:pb-0"
                 >
-                  {/* Timeline dot */}
                   <div
                     className={`absolute left-0 top-[10px] w-[15px] h-[15px] rounded-full border-2 z-10 ${
                       job.current
@@ -418,7 +480,6 @@ export default function AboutContent() {
                           : "bg-white border-gray-400"
                     }`}
                   >
-                    {/* Pulsing ring on current role */}
                     {job.current && (
                       <span
                         className={`absolute inset-0 rounded-full animate-ping opacity-40 ${
@@ -428,7 +489,6 @@ export default function AboutContent() {
                     )}
                   </div>
 
-                  {/* Card */}
                   <div
                     className={`rounded-2xl border p-7 lg:p-9 transition-colors duration-300 ${
                       theme === "dark"
@@ -436,7 +496,6 @@ export default function AboutContent() {
                         : "bg-white border-gray-200"
                     }`}
                   >
-                    {/* Header */}
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
                       <div>
                         <div className="flex flex-wrap items-center gap-2.5 mb-1.5">
@@ -504,7 +563,6 @@ export default function AboutContent() {
                       </div>
                     </div>
 
-                    {/* Highlights */}
                     {job.highlights.length > 0 && (
                       <ul className="space-y-2.5">
                         {job.highlights.map((point, j) => (
@@ -533,7 +591,6 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── Education ────────────────────────────────────────────────────── */}
       <section
         className={`px-6 sm:px-10 lg:px-16 py-16 sm:py-24 transition-colors duration-500 ${
           theme === "dark" ? "bg-zinc-900/40" : "bg-gray-50"
@@ -541,14 +598,14 @@ export default function AboutContent() {
       >
         <div className="max-w-7xl mx-auto py-6 lg:py-16">
           <motion.div {...fadeUp(0)} className="mb-12">
-            {sectionLabel("Education")}
+            {sectionLabel("Learning")}
             <h2
               className={`text-4xl sm:text-5xl font-bold tracking-tight ${
                 theme === "dark" ? "text-white" : "text-gray-900"
               }`}
               style={titleStyle}
             >
-              Where I Studied
+              Creative Learning
             </h2>
           </motion.div>
 
@@ -614,7 +671,6 @@ export default function AboutContent() {
                       </p>
                     </div>
                   </div>
-                  {/* edu.note placeholder - fill to show additional details */}
                   {edu.note && (
                     <p
                       className={`text-sm ${
@@ -628,7 +684,6 @@ export default function AboutContent() {
               </motion.div>
             ))}
 
-            {/* DSA / Problem Solving card */}
             <motion.div
               {...fadeUp(0.08)}
               className={`rounded-2xl border p-8 ${
@@ -643,33 +698,39 @@ export default function AboutContent() {
                     theme === "dark" ? "text-white" : "text-gray-900"
                   }`}
                 >
-                  Data Structures & Algorithms
+                  Currently Learning
                 </h3>
                 <p
                   className={`text-sm leading-relaxed ${
                     theme === "dark" ? "text-zinc-400" : "text-gray-600"
                   }`}
                 >
-                  Regularly practising DSA - Arrays, Trees, Graphs, Dynamic
-                  Programming. Strong understanding of time and space complexity
-                  analysis. Comfortable solving medium-level algorithmic
-                  challenges.
+                  I keep expanding the creative toolkit that powers my workflow.
                 </p>
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {["Arrays", "Trees", "Graphs", "Recursion", "Hashing", "DP"].map(
-                    (tag) => (
-                      <span
-                        key={tag}
-                        className={`text-xs px-2.5 py-1 rounded-full border font-medium ${
-                          theme === "dark"
-                            ? "border-zinc-700 bg-zinc-800 text-zinc-400"
-                            : "border-gray-200 bg-gray-50 text-gray-600"
-                        }`}
-                      >
-                        {tag}
-                      </span>
-                    )
-                  )}
+                  {[
+                    "Premiere Pro",
+                    "After Effects",
+                    "DaVinci Resolve",
+                    "ChatGPT",
+                    "Claude",
+                    "Veo",
+                    "Google Flow",
+                    "Runway",
+                    "Storytelling",
+                    "Motion Design",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className={`text-xs px-2.5 py-1 rounded-full border font-medium ${
+                        theme === "dark"
+                          ? "border-zinc-700 bg-zinc-800 text-zinc-400"
+                          : "border-gray-200 bg-gray-50 text-gray-600"
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -677,62 +738,60 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── Recognition ──────────────────────────────────────────────────── */}
       <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-24 max-w-7xl mx-auto">
         <div className="py-6 lg:py-24 ">
-        <motion.div {...fadeUp(0)} className="mb-12">
-          {sectionLabel("Recognition")}
-          <h2
-            className={`text-4xl sm:text-5xl font-bold tracking-tight ${
-              theme === "dark" ? "text-white" : "text-gray-900"
-            }`}
-            style={titleStyle}
-          >
-            Beyond the Code
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {recognition.map((item, i) => (
-            <motion.div
-              key={item.title}
-              {...fadeUp(i * 0.08)}
-              className={`rounded-2xl border p-8 flex flex-col gap-4 ${
-                theme === "dark"
-                  ? "bg-zinc-900 border-zinc-800"
-                  : "bg-white border-gray-200"
+          <motion.div {...fadeUp(0)} className="mb-12">
+            {sectionLabel("Community & Leadership")}
+            <h2
+              className={`text-4xl sm:text-5xl font-bold tracking-tight ${
+                theme === "dark" ? "text-white" : "text-gray-900"
               }`}
+              style={titleStyle}
             >
-              <span
-                className={`self-start text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
+              Beyond The Timeline
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {recognition.map((item, i) => (
+              <motion.div
+                key={item.title}
+                {...fadeUp(i * 0.08)}
+                className={`rounded-2xl border p-8 flex flex-col gap-4 ${
                   theme === "dark"
-                    ? "bg-[#C4F047]/10 text-[#C4F047]"
-                    : "bg-blue-100 text-blue-600"
+                    ? "bg-zinc-900 border-zinc-800"
+                    : "bg-white border-gray-200"
                 }`}
               >
-                {item.badge}
-              </span>
-              <h4
-                className={`text-xl font-bold leading-snug ${
-                  theme === "dark" ? "text-white" : "text-gray-900"
-                }`}
-              >
-                {item.title}
-              </h4>
-              <p
-                className={`text-sm leading-relaxed flex-1 ${
-                  theme === "dark" ? "text-zinc-400" : "text-gray-600"
-                }`}
-              >
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+                <span
+                  className={`self-start text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
+                    theme === "dark"
+                      ? "bg-[#C4F047]/10 text-[#C4F047]"
+                      : "bg-blue-100 text-blue-600"
+                  }`}
+                >
+                  {item.badge}
+                </span>
+                <h4
+                  className={`text-xl font-bold leading-snug ${
+                    theme === "dark" ? "text-white" : "text-gray-900"
+                  }`}
+                >
+                  {item.title}
+                </h4>
+                <p
+                  className={`text-sm leading-relaxed flex-1 ${
+                    theme === "dark" ? "text-zinc-400" : "text-gray-600"
+                  }`}
+                >
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <section
         className={`px-6 sm:px-10 lg:px-16 py-20 sm:py-28 text-center transition-colors duration-500 ${
           theme === "dark" ? "bg-zinc-900/40" : "bg-gray-50"
@@ -746,7 +805,7 @@ export default function AboutContent() {
             }`}
             style={titleStyle}
           >
-            Let's Build Something
+            Let's Create Something Worth Watching
           </motion.h2>
           <motion.p
             {...fadeUp(0.08)}
@@ -754,8 +813,7 @@ export default function AboutContent() {
               theme === "dark" ? "text-zinc-400" : "text-gray-600"
             }`}
           >
-            Open to full-time roles, freelance projects, and meaningful
-            collaborations.
+            Open to full-time opportunities, creative collaborations, AI-first production, and ambitious storytelling projects.
           </motion.p>
           <motion.div
             {...fadeUp(0.14)}

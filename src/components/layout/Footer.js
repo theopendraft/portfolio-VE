@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useCursor } from '@/hooks/useCursor';
 import { useTheme } from '@/contexts/ThemeContext';
 
@@ -10,11 +9,20 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      name: 'GitHub',
-      url: 'https://github.com/theopendraft',
+      name: 'YouTube',
+      url: 'https://www.youtube.com/@theopendraft',
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+          <path d="M23.498 6.186a2.996 2.996 0 00-2.108-2.12C19.536 3.5 12 3.5 12 3.5s-7.536 0-9.39.566a2.996 2.996 0 00-2.108 2.12A31.24 31.24 0 000 12a31.24 31.24 0 00.502 5.814 2.996 2.996 0 002.108 2.12C4.464 20.5 12 20.5 12 20.5s7.536 0 9.39-.566a2.996 2.996 0 002.108-2.12A31.24 31.24 0 0024 12a31.24 31.24 0 00-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/the_open_draft',
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7.75 2h8.5A5.76 5.76 0 0122 7.75v8.5A5.76 5.76 0 0116.25 22h-8.5A5.76 5.76 0 012 16.25v-8.5A5.76 5.76 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5a4.25 4.25 0 004.25 4.25h8.5a4.25 4.25 0 004.25-4.25v-8.5a4.25 4.25 0 00-4.25-4.25h-8.5zM12 7.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.5a3.4 3.4 0 100 6.8 3.4 3.4 0 000-6.8zm5.15-1.8a1.05 1.05 0 110 2.1 1.05 1.05 0 010-2.1z" />
         </svg>
       ),
     },
@@ -27,14 +35,15 @@ export default function Footer() {
         </svg>
       ),
     },
-  ];
-
-  const pageLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/blogs', label: 'Blogs' },
-    { href: '/contact', label: 'Contact' },
+    {
+      name: 'Email',
+      url: 'mailto:pankajyadavwiki@gmail.com',
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -43,40 +52,42 @@ export default function Footer() {
       <div className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-40 space-y-4">
         {/* Resume Button */}
         <a
-          href="/resume/Pankaj_Yadav_SDE_Resume.pdf"
+          href="/resume/Pankaj_Yadav_AI_Video_Editor.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center justify-center w-14 h-14 rounded-full transition-all duration-300 shadow-lg group ${
+          className={`flex items-center gap-3 px-5 py-3 rounded-full border transition-all duration-300 shadow-lg group ${
             theme === 'dark'
-              ? 'bg-zinc-900 border border-zinc-800 text-white hover:bg-[#C4F047] hover:text-black hover:border-[#C4F047]'
-              : 'bg-white border border-gray-300 text-gray-900 hover:bg-blue-500 hover:text-white hover:border-blue-500'
+              ? 'bg-zinc-900 border-zinc-800 text-white hover:bg-[#C4F047] hover:text-black hover:border-[#C4F047]'
+              : 'bg-white border-gray-300 text-gray-900 hover:bg-blue-500 hover:text-white hover:border-blue-500'
           }`}
           onMouseEnter={() => setCursorType('active')}
           onMouseLeave={resetCursor}
           aria-label="Download Resume"
         >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
+          <span className="text-sm font-medium uppercase tracking-wider">Resume</span>
         </a>
 
-        {/* GitHub Button */}
+        {/* YouTube Button */}
         <a
-          href="https://github.com/theopendraft"
+          href="https://www.youtube.com/@theopendraft"
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center justify-center w-14 h-14 rounded-full transition-all duration-300 shadow-lg group ${
+          className={`flex items-center gap-3 px-5 py-3 rounded-full border transition-all duration-300 shadow-lg group ${
             theme === 'dark'
-              ? 'bg-zinc-900 border border-zinc-800 text-white hover:bg-[#C4F047] hover:text-black hover:border-[#C4F047]'
-              : 'bg-white border border-gray-300 text-gray-900 hover:bg-blue-500 hover:text-white hover:border-blue-500'
+              ? 'bg-zinc-900 border-zinc-800 text-white hover:bg-[#C4F047] hover:text-black hover:border-[#C4F047]'
+              : 'bg-white border-gray-300 text-gray-900 hover:bg-blue-500 hover:text-white hover:border-blue-500'
           }`}
           onMouseEnter={() => setCursorType('active')}
           onMouseLeave={resetCursor}
-          aria-label="GitHub Profile"
+          aria-label="YouTube Channel"
         >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+          <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a2.996 2.996 0 00-2.108-2.12C19.536 3.5 12 3.5 12 3.5s-7.536 0-9.39.566a2.996 2.996 0 00-2.108 2.12A31.24 31.24 0 000 12a31.24 31.24 0 00.502 5.814 2.996 2.996 0 002.108 2.12C4.464 20.5 12 20.5 12 20.5s7.536 0 9.39-.566a2.996 2.996 0 002.108-2.12A31.24 31.24 0 0024 12a31.24 31.24 0 00-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z" />
           </svg>
+          <span className="text-sm font-medium uppercase tracking-wider">YouTube</span>
         </a>
       </div>
 
@@ -100,22 +111,34 @@ export default function Footer() {
                 <p className={`text-base ${
                   theme === 'dark' ? 'text-zinc-400' : 'text-gray-600'
                 }`}>
-                  Full-Stack Software Engineer
+                  AI Video Editor & Creative Strategist
+                </p>
+                <p className={`mt-1 text-sm ${
+                  theme === 'dark' ? 'text-zinc-500' : 'text-gray-500'
+                }`}>
+                  Motion Graphics · Storytelling · AI-Assisted Production
                 </p>
               </div>
 
               <div className={`space-y-1.5 text-sm ${
                 theme === 'dark' ? 'text-zinc-500' : 'text-gray-500'
               }`}>
-                <p>siddarth8818@gmail.com</p>
-                <p>Chennai, Tamil Nadu · Available for work</p>
+                <p>pankajyadavwiki@gmail.com</p>
+                <p>Siliguri, India · Open to Remote & On-site</p>
               </div>
 
               <p className={`text-sm max-w-md ${
                 theme === 'dark' ? 'text-zinc-600' : 'text-gray-400'
               }`}>
-                Building meaningful digital experiences with clean code, scalable architecture, and thoughtful design.
+                Creating AI-assisted videos, cinematic edits, motion graphics, and performance-driven content that helps brands tell memorable stories.
               </p>
+
+              <div className={`space-y-2 text-sm ${
+                theme === 'dark' ? 'text-zinc-500' : 'text-gray-500'
+              }`}>
+                <p className="uppercase tracking-widest text-xs">Available for</p>
+                <p>Full-time · Freelance · Creative Collaborations</p>
+              </div>
             </div>
 
             {/* Right: Social Links */}
@@ -146,27 +169,18 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
-
-              {/* Mobile Action Buttons */}
-              <div className="lg:hidden flex gap-4 pt-2">
-                <a
-                  href="/resume/Pankaj_Yadav_SDE_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center gap-2 px-6 py-3 border rounded-full transition-all duration-300 text-sm font-medium ${
-                    theme === 'dark'
-                      ? 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:text-[#C4F047] hover:border-[#C4F047]'
-                      : 'bg-gray-100 border-gray-300 text-gray-600 hover:text-blue-500 hover:border-blue-500'
-                  }`}
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  Resume
-                </a>
-              </div>
             </div>
 
+          </div>
+
+          <div className={`mt-12 rounded-3xl border px-6 py-5 sm:px-8 sm:py-6 text-center ${
+            theme === 'dark'
+              ? 'border-zinc-900 bg-zinc-950/40 text-zinc-300'
+              : 'border-gray-200 bg-gray-50 text-gray-700'
+          }`}>
+            <p className="text-sm sm:text-base italic">
+              "Creating stories that people remember."
+            </p>
           </div>
 
           {/* Bottom Bar */}
@@ -177,7 +191,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Pankaj Yadav. All rights reserved.
             </p>
             <p className={`text-xs ${theme === 'dark' ? 'text-zinc-800' : 'text-gray-300'}`}>
-              Built with Next.js · Framer Motion · Tailwind CSS
+              Designed & Developed by Pankaj Yadav
             </p>
           </div>
         </div>

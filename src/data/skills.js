@@ -6,50 +6,50 @@
 export const skills = [
   {
     id: 1,
-    title: "Frontend Development",
+    title: "Video Editing",
     description:
-      "Building performant, responsive UIs with React.js and Next.js. Proficient in component architecture, custom hooks, state management patterns, and modern JavaScript (ES6+). Focus on clean, maintainable component design.",
-    tags: ["React.js", "Next.js", "JavaScript", "Hooks", "State Management"],
+      "Craft engaging videos with cinematic pacing, seamless transitions, visual storytelling, and platform-specific editing that keeps audiences watching.",
+    tags: ["Premiere Pro", "DaVinci Resolve", "Storytelling", "Reels", "Short-form", "Long-form"],
     image: null,
   },
   {
     id: 2,
-    title: "Backend Engineering",
+    title: "Motion Graphics",
     description:
-      "Designing and shipping production-grade REST APIs with Node.js and Express. Experienced in full API lifecycle management, authentication flows (JWT), middleware design, and secure transactional data flows.",
-    tags: ["Node.js", "Express", "REST APIs", "JWT", "Authentication"],
+      "Design clean motion graphics, animated typography, logo reveals, and visual elements that strengthen storytelling and brand identity.",
+    tags: ["After Effects", "Typography", "Tracking", "Masking", "MOGRT", "Animation"],
     image: null,
   },
   {
     id: 3,
-    title: "Database Design",
+    title: "Post Production",
     description:
-      "Architecting normalized relational schemas in PostgreSQL with a focus on indexing strategies, query optimization, and transactional integrity. Achieved 25% backend response time improvement in production through targeted SQL tuning.",
-    tags: ["PostgreSQL", "SQL", "Prisma", "Schema Design", "Query Optimization"],
+      "Enhance every frame with professional color grading, sound design, dialogue cleanup, proxy workflows, and optimized exports.",
+    tags: ["Color Grading", "Sound Design", "Lumetri", "Audition", "Proxy Workflow"],
     image: null,
   },
   {
     id: 4,
-    title: "AI Integration",
+    title: "AI Production",
     description:
-      "Integrating LLM APIs into production workflows for content generation, strategy automation, and structured output pipelines. Built state-driven generation → approval → scheduling → execution lifecycles at scale.",
-    tags: ["LLM APIs", "OpenAI", "Vector Search", "Workflow Automation"],
+      "Integrate generative AI throughout production—from scripting and image generation to AI video, voice synthesis, and workflow automation.",
+    tags: ["ChatGPT", "Claude", "Veo", "Kling", "Google Flow", "ElevenLabs"],
     image: null,
   },
   {
     id: 5,
-    title: "UI/UX Design",
+    title: "Creative Strategy",
     description:
-      "Creating visually polished, intuitive interfaces with a strong eye for detail and user flow. Comfortable bridging design systems and implementation through component-first thinking and Figma-to-code workflows.",
-    tags: ["Figma", "Tailwind CSS", "Framer Motion", "Design Systems"],
+      "Develop content strategies that combine audience psychology, storytelling, branding, and platform trends to maximize impact.",
+    tags: ["Content Strategy", "Hooks", "Retention", "Brand Storytelling", "Campaigns"],
     image: null,
   },
   {
     id: 6,
-    title: "Performance Optimization",
+    title: "Performance Marketing",
     description:
-      "Profiling and optimizing across the full stack - SQL query tuning, frontend state refactoring to eliminate redundant API calls, and structured debugging to reduce recurring production defects by 30%.",
-    tags: ["Profiling", "Bundle Optimization", "State Refactoring", "Debugging"],
+      "Create scroll-stopping UGC ads and performance creatives designed to improve watch time, engagement, and conversions across social platforms.",
+    tags: ["UGC Ads", "CTR", "Retention", "Meta Ads", "YouTube", "Instagram"],
     image: null,
   },
 ];

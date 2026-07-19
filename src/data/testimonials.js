@@ -1,51 +1,68 @@
 /**
- * Recognition & Impact Data
- * Real achievements, metrics, and contributions
+ * Beyond The Timeline Data
+ * Community leadership, speaking, and open-knowledge contributions
  */
 
-export const testimonials = [
+export const communityStats = [
+  { value: "5+", label: "Communities" },
+  { value: "200+", label: "Students" },
+  { value: "3", label: "Leadership Roles" },
+  { value: "1", label: "International Scholarship" },
+];
+
+export const communityCards = [
   {
     id: 1,
-    type: "achievement",
-    title: "Smart India Hackathon 2024",
-    badge: "National Finalist",
+    badge: "Leadership",
+    title: "Board Member\nWiki Club SATI",
     description:
-      "Ranked in the top 2 nationally among 100+ competing teams. Built a production-grade government-scale solution as team lead within 36 hours - one of India's largest national hackathons.",
+      "Organize Wikimedia initiatives, lead technical and media workshops, mentor new contributors, and help grow one of SATI's most active student communities.",
+    footer: "2024–Present",
+    icon: "Crown",
   },
   {
     id: 2,
-    type: "stat",
-    value: "25%",
-    label: "Backend Performance Gain",
+    badge: "International",
+    title: "Wikimania 2025",
+    description:
+      "Awarded a full scholarship to attend Wikimania 2025 in Nairobi, collaborating with contributors and open-knowledge leaders from around the world.",
+    footer: "Nairobi, Kenya",
+    icon: "Globe2",
   },
   {
     id: 3,
-    type: "achievement",
-    title: "Adrig AI Technologies",
-    badge: "Software Developer",
+    badge: "Open Source",
+    title: "Wiki Movement",
     description:
-      "Delivered end-to-end full-stack features for enterprise AI workflow systems. Reduced recurring production defects by 30% and improved API response time by 25% through SQL optimization and state management refactoring.",
+      "Jury Member for Wiki Loves Folklore 2025 and Core Team Member of Wiki Science Competition 2025, supporting international Wikimedia campaigns.",
+    footer: "Global Community",
+    icon: "Workflow",
   },
   {
     id: 4,
-    type: "achievement",
-    title: "The Creator's Den",
     badge: "Founder",
+    title: "The Creator's Den",
     description:
-      "Founded a creative-tech student community bridging design thinking and software engineering - cultivating an active space for student makers, builders, and open-source contributors.",
+      "Founded a student-led creative community connecting designers, filmmakers, developers, and storytellers through collaborative projects and workshops.",
+    footer: "Creative Community",
+    icon: "Sparkles",
   },
   {
     id: 5,
-    type: "stat",
-    value: "30%",
-    label: "Production Defect Reduction",
+    badge: "Community",
+    title: "Google Developer Group",
+    description:
+      "Co-organised technical workshops, open-source events, and developer meetups, helping build a culture of learning for 200+ students.",
+    footer: "200+ Members",
+    icon: "UsersRound",
   },
   {
     id: 6,
-    type: "achievement",
-    title: "Google Developer Group",
-    badge: "Co-Organiser",
+    badge: "Speaker",
+    title: "Workshops & Sessions",
     description:
-      "Co-organised developer workshops, tech talks, and open-source events at the GDG chapter of SATI - fostering technical growth and developer culture across 200+ student members.",
+      "Delivered sessions on video editing, Wikimedia, design thinking, and technical topics, helping students explore creativity and technology together.",
+    footer: "Media & Technology",
+    icon: "Megaphone",
   },
 ];

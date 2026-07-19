@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Mail, Linkedin, Instagram, Youtube, Clock3 } from "lucide-react";
 import { useCursor } from "@/hooks/useCursor";
 import { useTheme } from "@/contexts/ThemeContext";
 import ShapeBlur from "@/components/shared/ShapeBlur";
@@ -33,17 +34,45 @@ export default function ContactSection() {
     fontFamily: "'Haffer', sans-serif",
     lineHeight: "100%",
     letterSpacing: "-0.01em",
-  };
+    };
 
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState(null); // 'success' | 'error' | 'send_error' | 'loading' | null
 
   const services = [
-    "Web Development",
-    "Mobile App Development",
-    "UI/UX Design",
-    "Consulting",
+    "Commercial Video",
+    "UGC Ads",
+    "Motion Graphics",
+    "AI Video Production",
+    "Social Media Content",
+    "Podcast Editing",
+    "Creative Strategy",
+    "YouTube Editing",
+    "Brand Campaign",
     "Other",
+  ];
+
+  const socialLinks = [
+    {
+      name: "Email",
+      href: "mailto:pankajyadavwiki@gmail.com",
+      icon: Mail,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/pankaj-yadav-5998b3249/",
+      icon: Linkedin,
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/the_open_draft",
+      icon: Instagram,
+    },
+    {
+      name: "YouTube",
+      href: "https://www.youtube.com/@theopendraft",
+      icon: Youtube,
+    },
   ];
 
   const handleChange = (e) => {
@@ -163,7 +192,7 @@ export default function ContactSection() {
                     theme === "dark" ? "text-white" : "text-black"
                   }`}
                 >
-                  ᯓ➤
+                  🎬
                 </span>
               </motion.div>
             </div>
@@ -183,7 +212,7 @@ export default function ContactSection() {
                 }`}
                 style={titleStyle}
               >
-                Let's Work Together
+                Let's Create Something Worth Watching
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -198,8 +227,9 @@ export default function ContactSection() {
                   theme === "dark" ? "text-zinc-400" : "text-gray-600"
                 }`}
               >
-                Let's build something impactful together-whether it's your
-                brand, your website, or your next big idea.
+                Whether it's a brand campaign, AI-assisted commercial,
+                cinematic story, podcast, or social-first content, I'd love to
+                hear what you're building.
               </motion.p>
             </div>
             {/* Contact Form */}
@@ -225,7 +255,7 @@ export default function ContactSection() {
                       theme === "dark" ? "text-[#C4F047]" : "text-blue-500"
                     }`}
                   >
-                    Name
+                    Your Name
                   </label>
                   <input
                     type="text"
@@ -242,7 +272,7 @@ export default function ContactSection() {
                           : `bg-gray-50 text-gray-900 placeholder-gray-400 focus:ring-blue-500 ${errors.name ? "border-red-500" : "border-gray-300"}`
                       }
                     `}
-                    placeholder="John Smith"
+                    placeholder="Alex Morgan"
                   />
                   {errors.name && (
                     <p className="mt-2 text-sm text-red-400">{errors.name}</p>
@@ -257,7 +287,7 @@ export default function ContactSection() {
                       theme === "dark" ? "text-[#C4F047]" : "text-blue-500"
                     }`}
                   >
-                    Email
+                    Work Email
                   </label>
                   <input
                     type="email"
@@ -274,7 +304,7 @@ export default function ContactSection() {
                           : `bg-gray-50 text-gray-900 placeholder-gray-400 focus:ring-blue-500 ${errors.email ? "border-red-500" : "border-gray-300"}`
                       }
                     `}
-                    placeholder="johnsmith@gmail.com"
+                    placeholder="alex@company.com"
                   />
                   {errors.email && (
                     <p className="mt-2 text-sm text-red-400">{errors.email}</p>
@@ -290,7 +320,7 @@ export default function ContactSection() {
                     theme === "dark" ? "text-[#C4F047]" : "text-blue-500"
                   }`}
                 >
-                  Service Needed ?
+                  Project Type
                 </label>
                 <select
                   id="service"
@@ -307,7 +337,7 @@ export default function ContactSection() {
                     }
                   `}
                 >
-                  <option value="">Select...</option>
+                  <option value="">Select a project type...</option>
                   {services.map((service) => (
                     <option key={service} value={service}>
                       {service}
@@ -327,7 +357,7 @@ export default function ContactSection() {
                     theme === "dark" ? "text-[#C4F047]" : "text-blue-500"
                   }`}
                 >
-                  What Can I Help You...
+                    Tell me about your project
                 </label>
                 <textarea
                   id="message"
@@ -344,7 +374,7 @@ export default function ContactSection() {
                         : `bg-gray-50 text-gray-900 placeholder-gray-400 focus:ring-blue-500 ${errors.message ? "border-red-500" : "border-gray-300"}`
                     }
                   `}
-                  placeholder="Hello, I'd like to enquire about..."
+                  placeholder="Share your idea, campaign, timeline, or simply say hello..."
                 />
                 {errors.message && (
                   <p className="mt-2 text-sm text-red-400">{errors.message}</p>
@@ -359,7 +389,7 @@ export default function ContactSection() {
                   className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl"
                 >
                   <p className="text-green-400 text-sm">
-                    Thank you! Your message has been sent successfully.
+                    Message received. I'll get back to you as soon as possible.
                   </p>
                 </motion.div>
               )}
@@ -383,7 +413,7 @@ export default function ContactSection() {
                   className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl"
                 >
                   <p className="text-red-400 text-sm">
-                    Something went wrong. Email me directly at siddarth8818@gmail.com
+                    Something went wrong. Email me directly at pankajyadavwiki@gmail.com
                   </p>
                 </motion.div>
               )}
@@ -403,10 +433,49 @@ export default function ContactSection() {
                       : "border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
                   }`}
                 >
-                  {status === "loading" ? "Sending..." : "Submit"}
+                  {status === "loading" ? "Sending..." : "Let's Talk"}
                 </motion.button>
               </div>
             </motion.form>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className={`rounded-3xl border p-5 sm:p-6 space-y-4 ${
+                theme === "dark"
+                  ? "border-zinc-800 bg-zinc-900/50"
+                  : "border-gray-200 bg-gray-50"
+              }`}
+            >
+              <div
+                className={`text-sm font-semibold uppercase tracking-[0.2em] ${
+                  theme === "dark" ? "text-zinc-400" : "text-gray-500"
+                }`}
+              >
+                Currently available for
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[
+                  "Full-time Roles",
+                  "Freelance Projects",
+                  "Creative Collaborations",
+                  "AI Video Production",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className={`rounded-2xl border px-4 py-3 text-sm font-medium ${
+                      theme === "dark"
+                        ? "border-zinc-800 bg-zinc-950/30 text-zinc-300"
+                        : "border-gray-200 bg-white text-gray-700"
+                    }`}
+                  >
+                    ✓ {item}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
