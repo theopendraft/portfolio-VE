@@ -48,25 +48,37 @@ const haffer = localFont({
 });
 
 export const metadata = {
-  title: "Pankaj Yadav | Full-Stack Developer & Digital Designer",
-  description:
-    "Experienced full-stack developer and digital designer creating meaningful digital experiences with modern web technologies. Specializing in React, Next.js, and user-centered design.",
-  keywords: [
-    "full-stack developer",
-    "web developer",
-    "digital designer",
-    "React",
-    "Next.js",
-    "UI/UX",
-  ],
+  title: "Pankaj Yadav | AI Video Editor & Creative Strategist",
+    description:
+"AI Video Editor specializing in AI-assisted commercials, UGC ads, motion graphics, podcasts, documentaries, and creative storytelling. Helping brands, startups, and creators produce engaging content with modern AI workflows.",
+    keywords: [
+  "AI Video Editor",
+  "Video Editor",
+  "Motion Graphics",
+  "Creative Strategist",
+  "UGC Ads",
+  "Commercial Video Editor",
+  "Podcast Editor",
+  "Adobe Premiere Pro",
+  "After Effects",
+  "DaVinci Resolve",
+  "Google Veo",
+  "Google Flow",
+  "Kling AI",
+  "ElevenLabs",
+  "AI Content Creation",
+  "Short Form Video",
+  "Social Media Video Editor",
+  "Brand Campaigns",
+],
   authors: [{ name: "Pankaj Yadav" }],
   icons: {
     icon: "/logo/py_dark.svg",
   },
   openGraph: {
-    title: "Pankaj Yadav | Full-Stack Developer & Digital Designer",
+    title: "Pankaj Yadav | AI Video Editor & Creative Strategist",
     description:
-      "Creating meaningful digital experiences with modern web technologies",
+"AI Video Editor specializing in AI-assisted commercials, UGC ads, motion graphics, podcasts, documentaries, and creative storytelling. Helping brands, startups, and creators produce engaging content with modern AI workflows.",
     type: "website",
   },
 };
