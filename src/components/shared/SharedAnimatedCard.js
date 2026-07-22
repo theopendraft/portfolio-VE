@@ -100,9 +100,9 @@ export default function SharedAnimatedCard() {
 
   // ── Card contents ──────────────────────────────────────────────────────
   const faces = [
-    { src: "/image/Pankaj_Yadav.jpg",   sub: "Full-Stack Engineer",  label: "Pankaj Yadav"    }, // 0
-    { src: "/image/Pankaj_Yadav_2.jpg", sub: "What I Build With",    label: "Skills & Craft"  }, // 1 (back)
-    { src: "/image/Pankaj_Yadav_3.jpg", sub: "My Story & Journey",   label: "About Me"        }, // 2
+    { src: "/image/Pankaj_Yadav.jpg",   sub: "Creative Strategist",  label: "Pankaj Yadav"    }, // 0
+    { src: "/image/Pankaj_Yadav_2.jpg", sub: "Creative Workflow",    label: "Skills & Craft"  }, // 1 (back)
+    { src: "/image/Pankaj_Yadav_3.jpg", sub: "The Story Behind",   label: "About Me"        }, // 2
   ];
 
   // ── Guard ──────────────────────────────────────────────────────────────

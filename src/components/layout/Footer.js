@@ -67,7 +67,7 @@ export default function Footer() {
           <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
-          <span className="text-sm font-medium uppercase tracking-wider">Resume</span>
+          <span className="text-sm font-medium uppercase tracking-wider"></span>
         </a>
 
         {/* YouTube Button */}
@@ -87,7 +87,7 @@ export default function Footer() {
           <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
             <path d="M23.498 6.186a2.996 2.996 0 00-2.108-2.12C19.536 3.5 12 3.5 12 3.5s-7.536 0-9.39.566a2.996 2.996 0 00-2.108 2.12A31.24 31.24 0 000 12a31.24 31.24 0 00.502 5.814 2.996 2.996 0 002.108 2.12C4.464 20.5 12 20.5 12 20.5s7.536 0 9.39-.566a2.996 2.996 0 002.108-2.12A31.24 31.24 0 0024 12a31.24 31.24 0 00-.502-5.814zM9.75 15.5v-7l6 3.5-6 3.5z" />
           </svg>
-          <span className="text-sm font-medium uppercase tracking-wider">YouTube</span>
+          
         </a>
       </div>
 

@@ -348,7 +348,7 @@ function WorkCard({ work, index, isDark, accentColor, setCursorType, resetCursor
           onMouseLeave={resetCursor}
         >
           <Image
-            src={work.previewImage || "/project/aladdyn.png"}
+            src={work.previewImage || "/project/y1.png"}
             alt={work.title}
             fill
             className="object-cover object-top transition-transform duration-700 group-hover:scale-105"

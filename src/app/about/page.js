@@ -1,9 +1,9 @@
 import AboutContent from "@/components/pages/AboutContent";
 
 export const metadata = {
-  title: "About - Pankaj Yadav | Full-Stack Software Engineer",
+  title: "About - Pankaj Yadav | AI Video Editor & Creative Strategist",
   description:
-    "Full-Stack Software Engineer based in Chennai, India. Building production-grade web systems with React, Node.js, and PostgreSQL at Adrig AI Technologies.",
+    "AI Video Editor & Creative Strategist based in Siliguri, India. Specializing in AI-assisted commercials, UGC ads, motion graphics, podcasts, documentaries, and creative storytelling.",
 };
 
 export default function AboutPage() {
