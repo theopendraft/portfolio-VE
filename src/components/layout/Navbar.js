@@ -121,7 +121,7 @@ export default function Navbar() {
 
               {/* Desktop resume CTA */}
               <a
-                href="/resume/Pankaj_Yadav_SDE_Resume.pdf"
+                href="/resume/Pankaj_Yadav_AI_Video_Editor.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`hidden lg:inline-flex shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 hover:shadow-md cursor-none ${
