@@ -240,7 +240,7 @@ export default function AboutMe() {
                 My Journey
               </Link>
               <a
-                href="/resume/Pankaj_Yadav_Video_Editor_Resume.pdf"
+                href="/resume/Pankaj_Yadav_AI_Video_Editor.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-wider transition-all duration-300 ${
