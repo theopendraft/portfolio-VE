@@ -31,9 +31,8 @@ export default function FeaturedProjects() {
   return (
     <section
       id="projects"
-      className={`relative transition-colors duration-500 ${
-        theme === "dark" ? "bg-transparent" : "bg-gray-100"
-      }`}
+      className={`relative transition-colors duration-500 ${theme === "dark" ? "bg-transparent" : "bg-gray-100"
+        }`}
     >
       <div className="relative px-4 sm:px-8 py-16 sm:py-24 text-center">
         <motion.p
@@ -41,9 +40,8 @@ export default function FeaturedProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className={`text-xs uppercase tracking-[0.25em] font-medium mb-3 ${
-            theme === "dark" ? "text-zinc-500" : "text-gray-400"
-          }`}
+          className={`text-xs uppercase tracking-[0.25em] font-medium mb-3 ${theme === "dark" ? "text-zinc-500" : "text-gray-400"
+            }`}
         >
           Selected Work
         </motion.p>
@@ -53,9 +51,8 @@ export default function FeaturedProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.05 }}
-          className={`text-6xl lg:text-7xl font-bold tracking-tight mb-6 ${
-            theme === "dark" ? "text-white" : "text-gray-900"
-          }`}
+          className={`text-6xl lg:text-7xl font-bold tracking-tight mb-6 ${theme === "dark" ? "text-white" : "text-gray-900"
+            }`}
           style={titleStyle}
         >
           Selected Work
@@ -66,9 +63,8 @@ export default function FeaturedProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.1 }}
-          className={`text-lg max-w-2xl mx-auto leading-relaxed ${
-            theme === "dark" ? "text-zinc-400" : "text-gray-600"
-          }`}
+          className={`text-lg max-w-2xl mx-auto leading-relaxed ${theme === "dark" ? "text-zinc-400" : "text-gray-600"
+            }`}
         >
           Stories crafted with AI, motion graphics, and performance-driven editing.
         </motion.p>
@@ -169,11 +165,10 @@ export default function FeaturedProjects() {
             ].map(([tool, stage]) => (
               <div
                 key={tool}
-                className={`rounded-2xl border px-5 py-4 ${
-                  theme === "dark"
+                className={`rounded-2xl border px-5 py-4 ${theme === "dark"
                     ? "border-zinc-800 bg-zinc-900/40 text-white"
                     : "border-gray-200 bg-white text-gray-900"
-                }`}
+                  }`}
               >
                 <div className="text-sm font-semibold uppercase tracking-wider">{tool}</div>
                 <div className={`mt-2 text-xs uppercase tracking-[0.25em] ${theme === "dark" ? "text-zinc-500" : "text-gray-500"}`}>
@@ -186,11 +181,10 @@ export default function FeaturedProjects() {
       </div>
 
       <div
-        className={`relative px-8 pb-16 sm:pb-20 text-center transition-colors duration-500 ${
-          theme === "dark"
+        className={`relative px-8 pb-16 sm:pb-20 text-center transition-colors duration-500 ${theme === "dark"
             ? "bg-black-800"
             : "bg-linear-to-b from-gray-100 to-gray-200"
-        }`}
+          }`}
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -204,11 +198,10 @@ export default function FeaturedProjects() {
           </p>
           <Link
             href="/projects"
-            className={`inline-flex items-center gap-3 px-10 py-5 rounded-full border-2 bg-transparent font-semibold text-base uppercase tracking-wider transition-all duration-300 ${
-              theme === "dark"
+            className={`inline-flex items-center gap-3 px-10 py-5 rounded-full border-2 bg-transparent font-semibold text-base uppercase tracking-wider transition-all duration-300 ${theme === "dark"
                 ? "border-zinc-700 text-white hover:border-[#C4F047] hover:text-[#C4F047] hover:shadow-[0_0_30px_rgba(196,240,71,0.3)]"
                 : "border-gray-400 text-gray-900 hover:border-blue-500 hover:text-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]"
-            }`}
+              }`}
             onMouseEnter={() => setCursorType("active")}
             onMouseLeave={resetCursor}
           >
@@ -261,16 +254,15 @@ function FilmCard({
 
   const filmShell = (
     <div
-      className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center rounded-3xl overflow-hidden border p-8 lg:p-16 transition-all duration-500 h-full ${
-        theme === "dark"
+      className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center rounded-3xl overflow-hidden border p-8 lg:p-16 transition-all duration-500 h-full ${theme === "dark"
           ? "bg-zinc-900 border-zinc-800 hover:border-[#C4F047]"
           : "bg-white border-gray-300 hover:border-blue-500"
-      }`}
+        }`}
     >
       <button
         type="button"
         className="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-white/5 cursor-pointer text-left"
-        onClick={() => setActiveFilmId(isActive ? null : project.id)}
+        onClick={!isActive ? () => setActiveFilmId(project.id) : undefined}
         onMouseEnter={() => {
           setIsHovered(true);
           setCursorType("active");
@@ -298,26 +290,33 @@ function FilmCard({
           />
         )}
 
-        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-90 transition-opacity duration-500" />
+{!isActive && (
+  <>
+    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-90 transition-opacity duration-500" />
 
-        {!isActive && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className={`flex h-20 w-20 items-center justify-center rounded-full border border-white/25 bg-black/40 text-white shadow-2xl backdrop-blur-sm ${isHovered ? "scale-105" : "scale-100"} transition-transform duration-300`}>
-              <svg className="h-7 w-7 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-          </div>
-        )}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <span
+        className={`flex h-20 w-20 items-center justify-center rounded-full border border-white/25 bg-black/40 text-white shadow-2xl backdrop-blur-sm ${
+          isHovered ? "scale-105" : "scale-100"
+        } transition-transform duration-300`}
+      >
+        <svg className="h-7 w-7 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </span>
+    </div>
 
-        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 flex items-center justify-between text-white">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em]">
-            {project.duration}
-          </span>
-          <span className="text-xs font-medium uppercase tracking-[0.2em] rounded-full border border-white/20 bg-white/10 px-3 py-1">
-            {project.category}
-          </span>
-        </div>
+    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 flex items-center justify-between text-white">
+      <span className="text-xs font-semibold uppercase tracking-[0.25em]">
+        {project.duration}
+      </span>
+
+      <span className="text-xs font-medium uppercase tracking-[0.2em] rounded-full border border-white/20 bg-white/10 px-3 py-1">
+        {project.category}
+      </span>
+    </div>
+  </>
+)}
       </button>
 
       <div className="space-y-5">
@@ -331,9 +330,8 @@ function FilmCard({
         </div>
 
         <h3
-          className={`text-4xl lg:text-5xl font-bold leading-tight transition-colors duration-300 ${
-            theme === "dark" ? "text-white hover:text-[#C4F047]" : "text-gray-900 hover:text-blue-500"
-          }`}
+          className={`text-4xl lg:text-5xl font-bold leading-tight transition-colors duration-300 ${theme === "dark" ? "text-white hover:text-[#C4F047]" : "text-gray-900 hover:text-blue-500"
+            }`}
           style={titleStyle}
         >
           {project.title}
@@ -428,7 +426,10 @@ function FilmCard({
           <button
             type="button"
             className={`flex items-center gap-2 transition-colors duration-300 ${theme === "dark" ? "text-white hover:text-[#C4F047]" : "text-gray-900 hover:text-blue-500"}`}
-            onClick={() => setActiveFilmId(isActive ? null : project.id)}
+                onClick={() => {
+        if (isActive) return;
+        setActiveFilmId(project.id);
+    }}
           >
             <span className="text-sm font-semibold uppercase tracking-wider">
               {isActive ? "Hide Preview" : "Watch Full Film"}
@@ -496,19 +497,31 @@ function ShortVideoCard({ video, theme, setCursorType, resetCursor, tall }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const embedUrl = video.youtubeId
-    ? `https://www.youtube-nocookie.com/embed/${video.youtubeId}?rel=0&modestbranding=1&playsinline=1`
-    : null;
+const getYoutubeId = (url) => {
+  if (!url) return null;
+
+  const match = url.match(/shorts\/([^?]+)/);
+
+  return match?.[1] ?? null;
+};
+
+const youtubeId = video.youtubeId || getYoutubeId(video.watchUrl);
+
+const embedUrl = youtubeId
+  ? `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&playsinline=1`
+  : null;
 
   return (
     <button
       type="button"
-      onClick={() => setIsPlaying((prev) => !prev)}
-      className={`group mb-4 inline-block w-full rounded-2xl border overflow-hidden text-left transition-all duration-300 cursor-none ${
-        theme === "dark"
+      onClick={() => {
+        if (!embedUrl) return;
+        setIsPlaying(true);
+      }}
+      className={`group mb-4 inline-block w-full rounded-2xl border overflow-hidden text-left transition-all duration-300 cursor-none ${theme === "dark"
           ? "border-zinc-800 bg-zinc-900/40 hover:border-[#C4F047]"
           : "border-gray-200 bg-white hover:border-blue-500"
-      }`}
+        }`}
       onMouseEnter={() => {
         setIsHovered(true);
         setCursorType("active");
@@ -536,6 +549,9 @@ function ShortVideoCard({ video, theme, setCursorType, resetCursor, tall }) {
             sizes="(max-width:768px) 100vw, 33vw"
           />
         )}
+        {!isPlaying && (
+        <>
+
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-90" />
         <div className="absolute inset-0 flex items-center justify-center">
           <span className={`flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white shadow-xl backdrop-blur-sm transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}>
@@ -560,7 +576,10 @@ function ShortVideoCard({ video, theme, setCursorType, resetCursor, tall }) {
             </h4>
           </div>
         </div>
+          </>
+          )}
       </div>
+      
     </button>
   );
 }

@@ -227,7 +227,7 @@ export default function HeroSection() {
             <div className="h-[520px]" aria-hidden="true" />
 
             {/* RIGHT TEXT BLOCK */}
-            <div className="flex flex-col justify-center max-w-[560px] justify-self-start pt-16">
+            <div className="flex flex-col justify-center max-w-[560px] justify-self-start pt-16 lg:pt-36">
               {/* Cycling word */}
               <div className="overflow-hidden" style={{ height: "5.5em" }}>
                 <AnimatePresence mode="wait">

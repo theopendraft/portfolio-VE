@@ -12,8 +12,8 @@ import { featuredVideos, shortVideos } from "@/data/projects";
 
 const FILTERS = ["All", "Commercials", "UGC Ads", "Documentary", "Social Media", "Motion Graphics"];
 const titleStyle = {
-    fontFamily: "'Haffer', sans-serif",
-    letterSpacing: "-0.03em",
+  fontFamily: "'Haffer', sans-serif",
+  letterSpacing: "-0.03em",
 };
 const WORK_OVERRIDES = {
   1: {
@@ -116,36 +116,31 @@ export default function ProjectsContent() {
 
   return (
     <main
-      className={`relative min-h-screen overflow-hidden pt-38 pb-24 transition-colors duration-500 ${
-        isDark ? "bg-transparent" : "bg-gray-50"
-      }`}
+      className={`relative min-h-screen overflow-hidden pt-38 pb-24 transition-colors duration-500 ${isDark ? "bg-transparent" : "bg-gray-50"
+        }`}
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
-          className={`absolute -left-32 top-8 h-80 w-80 rounded-full blur-3xl opacity-25 ${
-            isDark ? "bg-[#C4F047]" : "bg-blue-300"
-          }`}
+          className={`absolute -left-32 top-8 h-80 w-80 rounded-full blur-3xl opacity-25 ${isDark ? "bg-[#C4F047]" : "bg-blue-300"
+            }`}
         />
         <div
-          className={`absolute right-[-6rem] top-1/3 h-72 w-72 rounded-full blur-3xl opacity-20 ${
-            isDark ? "bg-zinc-500" : "bg-orange-200"
-          }`}
+          className={`absolute right-[-6rem] top-1/3 h-72 w-72 rounded-full blur-3xl opacity-20 ${isDark ? "bg-zinc-500" : "bg-orange-200"
+            }`}
         />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 sm:px-10 lg:px-8">
         <motion.div {...fadeUp(0.08)} className="mb-12 sm:mb-16">
           <p
-            className={`text-xs uppercase tracking-[0.3em] font-medium mb-3 ${
-              isDark ? "text-zinc-500" : "text-gray-400"
-            }`}
+            className={`text-xs uppercase tracking-[0.3em] font-medium mb-3 ${isDark ? "text-zinc-500" : "text-gray-400"
+              }`}
           >
             Selected Work
           </p>
           <h1
-            className={`text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.92] tracking-tight whitespace-pre-line ${
-              isDark ? "text-white" : "text-gray-950"
-            }`}
+            className={`text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.92] tracking-tight whitespace-pre-line ${isDark ? "text-white" : "text-gray-950"
+              }`}
             style={titleStyle}
           >
             SELECTED
@@ -153,9 +148,8 @@ export default function ProjectsContent() {
             WORK.
           </h1>
           <p
-            className={`mt-5 max-w-2xl text-base sm:text-lg leading-relaxed ${
-              isDark ? "text-zinc-400" : "text-gray-600"
-            }`}
+            className={`mt-5 max-w-2xl text-base sm:text-lg leading-relaxed ${isDark ? "text-zinc-400" : "text-gray-600"
+              }`}
           >
             A selection of AI-assisted commercials, branded campaigns, documentaries, motion graphics, and creative experiments.
           </p>
@@ -171,15 +165,14 @@ export default function ProjectsContent() {
                 onClick={() => setActiveFilter(filter)}
                 onMouseEnter={() => setCursorType("hover")}
                 onMouseLeave={resetCursor}
-                className={`rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-none ${
-                  isActive
+                className={`rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-none ${isActive
                     ? isDark
                       ? "border-[#C4F047] bg-[#C4F047] text-black"
                       : "border-blue-500 bg-blue-500 text-white"
                     : isDark
-                    ? "border-zinc-800 bg-zinc-900/30 text-zinc-400 hover:border-zinc-600 hover:text-white"
-                    : "border-gray-200 bg-white/70 text-gray-500 hover:border-gray-400 hover:text-gray-900"
-                }`}
+                      ? "border-zinc-800 bg-zinc-900/30 text-zinc-400 hover:border-zinc-600 hover:text-white"
+                      : "border-gray-200 bg-white/70 text-gray-500 hover:border-gray-400 hover:text-gray-900"
+                  }`}
               >
                 {filter}
               </button>
@@ -290,48 +283,47 @@ export default function ProjectsContent() {
         </motion.section> */}
 
 
-              <div className={`relative px-4 sm:px-8 py-14 sm:py-18 ${theme === "dark" ? "bg-transparent" : "bg-gray-100"}`}>
-                <div className="max-w-7xl mx-auto">
-                  <div className="mb-8 sm:mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-                    <div>
-                      <p className={`text-xs uppercase tracking-[0.25em] font-medium mb-3 ${theme === "dark" ? "text-zinc-500" : "text-gray-400"}`}>
-                        Short Form
-                      </p>
-                      <h3 className={`text-4xl lg:text-5xl font-bold tracking-tight ${theme === "dark" ? "text-white" : "text-gray-900"}`} style={titleStyle}>
-                        Short-Form Content
-                      </h3>
-                    </div>
-                    <p className={`text-sm max-w-xl leading-relaxed ${theme === "dark" ? "text-zinc-500" : "text-gray-500"}`}>
-                      Vertical edits, UGC hooks, and campaign cutdowns designed for fast consumption and high retention.
-                    </p>
-                  </div>
-        
-                  <div className="columns-1 gap-4 sm:gap-5 md:columns-2 xl:columns-3 [column-fill:_balance]">
-                    {shortVideos.map((video, index) => (
-                      <ShortVideoCard
-                        key={video.id}
-                        video={video}
-                        theme={theme}
-                        setCursorType={setCursorType}
-                        resetCursor={resetCursor}
-                        tall={index % 3 === 1}
-                      />
-                    ))}
-                  </div>
-                </div>
+        <div className={`relative px-4 sm:px-8 py-14 sm:py-18 ${theme === "dark" ? "bg-transparent" : "bg-gray-100"}`}>
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-8 sm:mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className={`text-xs uppercase tracking-[0.25em] font-medium mb-3 ${theme === "dark" ? "text-zinc-500" : "text-gray-400"}`}>
+                  Short Form
+                </p>
+                <h3 className={`text-4xl lg:text-5xl font-bold tracking-tight ${theme === "dark" ? "text-white" : "text-gray-900"}`} style={titleStyle}>
+                  Short-Form Content
+                </h3>
               </div>
+              <p className={`text-sm max-w-xl leading-relaxed ${theme === "dark" ? "text-zinc-500" : "text-gray-500"}`}>
+                Vertical edits, UGC hooks, and campaign cutdowns designed for fast consumption and high retention.
+              </p>
+            </div>
 
-        
-        
+            <div className="columns-1 gap-4 sm:gap-5 md:columns-2 xl:columns-3 [column-fill:_balance]">
+              {shortVideos.map((video, index) => (
+                <ShortVideoCard
+                  key={video.id}
+                  video={video}
+                  theme={theme}
+                  setCursorType={setCursorType}
+                  resetCursor={resetCursor}
+                  tall={index % 3 === 1}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+
+
 
         <motion.div {...fadeUp(0.5)} className="mt-16 sm:mt-20 text-center">
           <p className={`text-sm mb-4 ${isDark ? "text-zinc-500" : "text-gray-500"}`}>
             Want to see more?
           </p>
           <h2
-            className={`text-3xl sm:text-4xl font-bold tracking-tight ${
-              isDark ? "text-white" : "text-gray-950"
-            }`}
+            className={`text-3xl sm:text-4xl font-bold tracking-tight ${isDark ? "text-white" : "text-gray-950"
+              }`}
             style={{ fontFamily: "'Haffer', sans-serif", letterSpacing: "-0.03em" }}
           >
             Let&apos;s create something worth watching.
@@ -343,11 +335,10 @@ export default function ProjectsContent() {
             <MagneticButton>
               <Link
                 href="/contact"
-                className={`inline-flex items-center gap-2 rounded-full border-2 px-7 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 cursor-none ${
-                  isDark
+                className={`inline-flex items-center gap-2 rounded-full border-2 px-7 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 cursor-none ${isDark
                     ? "border-[#C4F047] text-[#C4F047] hover:bg-[#C4F047] hover:text-black"
                     : "border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white"
-                }`}
+                  }`}
                 onMouseEnter={() => setCursorType("active")}
                 onMouseLeave={resetCursor}
               >
@@ -363,77 +354,96 @@ export default function ProjectsContent() {
 }
 
 function ShortVideoCard({ video, theme, setCursorType, resetCursor, tall }) {
-          const [isHovered, setIsHovered] = useState(false);
-          const [isPlaying, setIsPlaying] = useState(false);
-        
-          const embedUrl = video.youtubeId
-            ? `https://www.youtube-nocookie.com/embed/${video.youtubeId}?rel=0&modestbranding=1&playsinline=1`
-            : null;
-        
-          return (
-            <button
-              type="button"
-              onClick={() => setIsPlaying((prev) => !prev)}
-              className={`group mb-4 inline-block w-full rounded-2xl border overflow-hidden text-left transition-all duration-300 cursor-none ${
-                theme === "dark"
-                  ? "border-zinc-800 bg-zinc-900/40 hover:border-[#C4F047]"
-                  : "border-gray-200 bg-white hover:border-blue-500"
-              }`}
-              onMouseEnter={() => {
-                setIsHovered(true);
-                setCursorType("active");
-              }}
-              onMouseLeave={() => {
-                setIsHovered(false);
-                resetCursor();
-              }}
-            >
-              <div className={`relative overflow-hidden bg-zinc-900 ${tall ? "aspect-[9/18]" : "aspect-[9/15]"}`}>
-                {isPlaying && embedUrl ? (
-                  <iframe
-                    src={embedUrl}
-                    title={`${video.brand} ${video.title}`}
-                    className="absolute inset-0 h-full w-full"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                ) : (
-                  <Image
-                    src={video.previewImage}
-                    alt={video.title}
-                    fill
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width:768px) 100vw, 33vw"
-                  />
-                )}
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-90" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className={`flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white shadow-xl backdrop-blur-sm transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}>
-                    <svg className="h-5 w-5 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </span>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 p-4 text-white space-y-2">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="text-xs font-semibold uppercase tracking-[0.25em]">
-                      {video.duration}
-                    </span>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.25em] rounded-full border border-white/20 bg-white/10 px-2.5 py-1">
-                      {video.category}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-wider">{video.brand}</p>
-                    <h4 className="text-lg font-bold leading-tight" style={{ fontFamily: "'Haffer', sans-serif" }}>
-                      {video.title}
-                    </h4>
-                  </div>
-                </div>
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const getYoutubeId = (url) => {
+    if (!url) return null;
+
+    const match = url.match(/shorts\/([^?]+)/);
+
+    return match?.[1] ?? null;
+  };
+
+  const youtubeId = video.youtubeId || getYoutubeId(video.watchUrl);
+
+  const embedUrl = youtubeId
+    ? `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&playsinline=1`
+    : null;
+
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        if (!embedUrl) return;
+        setIsPlaying(true);
+      }}
+      className={`group mb-4 inline-block w-full rounded-2xl border overflow-hidden text-left transition-all duration-300 cursor-none ${theme === "dark"
+        ? "border-zinc-800 bg-zinc-900/40 hover:border-[#C4F047]"
+        : "border-gray-200 bg-white hover:border-blue-500"
+        }`}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        setCursorType("active");
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        resetCursor();
+      }}
+    >
+      <div className={`relative overflow-hidden bg-zinc-900 ${tall ? "aspect-[9/18]" : "aspect-[9/15]"}`}>
+        {isPlaying && embedUrl ? (
+          <iframe
+            src={embedUrl}
+            title={`${video.brand} ${video.title}`}
+            className="absolute inset-0 h-full w-full"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        ) : (
+          <Image
+            src={video.previewImage}
+            alt={video.title}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width:768px) 100vw, 33vw"
+          />
+        )}
+        {!isPlaying && (
+          <>
+
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-90" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className={`flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-black/35 text-white shadow-xl backdrop-blur-sm transition-transform duration-300 ${isHovered ? "scale-105" : "scale-100"}`}>
+                <svg className="h-5 w-5 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </div>
+            <div className="absolute inset-x-0 bottom-0 p-4 text-white space-y-2">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-xs font-semibold uppercase tracking-[0.25em]">
+                  {video.duration}
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.25em] rounded-full border border-white/20 bg-white/10 px-2.5 py-1">
+                  {video.category}
+                </span>
               </div>
-            </button>
-          );
-        }
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider">{video.brand}</p>
+                <h4 className="text-lg font-bold leading-tight" style={{ fontFamily: "'Haffer', sans-serif" }}>
+                  {video.title}
+                </h4>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+
+    </button>
+  );
+}
+
 
 function WorkCard({ work, index, isDark, accentColor, setCursorType, resetCursor }) {
   const backgroundClass = isDark
@@ -490,11 +500,10 @@ function WorkCard({ work, index, isDark, accentColor, setCursorType, resetCursor
           <div className="space-y-5">
             <div className="flex flex-wrap items-center gap-3">
               <span
-                className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] ${
-                  isDark
+                className={`rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] ${isDark
                     ? "border-[#C4F047]/20 bg-[#C4F047]/10 text-[#C4F047]"
                     : "border-blue-100 bg-blue-50 text-blue-600"
-                }`}
+                  }`}
               >
                 {work.badge}
               </span>
@@ -513,9 +522,8 @@ function WorkCard({ work, index, isDark, accentColor, setCursorType, resetCursor
             </div>
 
             <h2
-              className={`text-3xl sm:text-4xl font-bold leading-tight tracking-tight ${
-                isDark ? "text-white" : "text-gray-950"
-              }`}
+              className={`text-3xl sm:text-4xl font-bold leading-tight tracking-tight ${isDark ? "text-white" : "text-gray-950"
+                }`}
               style={{ fontFamily: "'Haffer', sans-serif", letterSpacing: "-0.03em" }}
             >
               {work.headline}
@@ -534,11 +542,10 @@ function WorkCard({ work, index, isDark, accentColor, setCursorType, resetCursor
                   {work.results.map((result) => (
                     <span
                       key={result}
-                      className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${
-                        isDark
+                      className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${isDark
                           ? "border-[#C4F047]/15 bg-[#C4F047]/10 text-[#C4F047]"
                           : "border-blue-100 bg-blue-50 text-blue-600"
-                      }`}
+                        }`}
                     >
                       {result}
                     </span>
@@ -556,11 +563,10 @@ function WorkCard({ work, index, isDark, accentColor, setCursorType, resetCursor
                   {work.tools.map((tool) => (
                     <span
                       key={tool}
-                      className={`rounded-full border px-3 py-1.5 text-xs font-medium ${
-                        isDark
+                      className={`rounded-full border px-3 py-1.5 text-xs font-medium ${isDark
                           ? "border-zinc-800 bg-zinc-900/80 text-zinc-300"
                           : "border-gray-200 bg-gray-50 text-gray-700"
-                      }`}
+                        }`}
                     >
                       {tool}
                     </span>
@@ -575,11 +581,10 @@ function WorkCard({ work, index, isDark, accentColor, setCursorType, resetCursor
               href={work.watchUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 rounded-full border-2 px-5 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 cursor-none ${
-                isDark
+              className={`inline-flex items-center gap-2 rounded-full border-2 px-5 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 cursor-none ${isDark
                   ? "border-[#C4F047] text-[#C4F047] hover:bg-[#C4F047] hover:text-black"
                   : "border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white"
-              }`}
+                }`}
               onMouseEnter={() => setCursorType("active")}
               onMouseLeave={resetCursor}
             >
@@ -589,11 +594,10 @@ function WorkCard({ work, index, isDark, accentColor, setCursorType, resetCursor
 
             <Link
               href="/contact"
-              className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 cursor-none ${
-                isDark
+              className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 cursor-none ${isDark
                   ? "border-zinc-800 text-zinc-300 hover:border-zinc-600 hover:text-white"
                   : "border-gray-200 text-gray-700 hover:border-gray-400 hover:text-gray-950"
-              }`}
+                }`}
               onMouseEnter={() => setCursorType("hover")}
               onMouseLeave={resetCursor}
             >
